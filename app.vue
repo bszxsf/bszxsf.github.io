@@ -14,12 +14,9 @@
 <!-- npx nuxt build --preset github_pages -->
 <!-- Used to test locally. No need to build before pushing -->
 
-<!-- TODO: beginner question: do I have to keep both 'script' blocks if setup syntax used O.o? -->
-<script lang="ts">
-  import TopNavigatorBar from '~/components/TopNavigatorBar.vue';
-</script>
+<script setup lang="ts">
+  import TopNavigatorBar from '~/components/TopNavigatorBar.vue'
 
-<script lang="ts" setup>
   let popup = function() {
     alert("弹出窗口")
   }
