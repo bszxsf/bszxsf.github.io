@@ -1,17 +1,19 @@
 <template>
   <!-- TODO: responsive width -->
-  <el-menu mode="horizontal" :ellipsis="false">
+  <el-menu mode="horizontal" :ellipsis="false" router>
     <!-- Left side: home page button -->
     <!-- People usually place a logo here, though I don't have one so we put whatever stuff. -->
     <!-- This icon (or whatever) shall navigate to the home page. So using the home icon ought to be a nice choice... -->
-    <el-menu-item id="nav-bar-home">
+    <el-menu-item index="/">
       <el-icon><House /></el-icon>
       Blog主体施工中
     </el-menu-item>
 
     <!-- Right side: misc stuff -->
     <!-- TODO: search bar, about (author, powered by etc.), github, dark mode switch -->
-
+    <el-menu-item index="about">
+      关于
+    </el-menu-item>
     <div class="nav-bar-non-btn">
       <el-switch
         v-model="isDark"
