@@ -1,21 +1,20 @@
 <template>
   <!-- TODO: responsive width -->
-  <div id="top-nav-bar">
+  <el-menu mode="horizontal" :ellipsis="false">
     <!-- Left side: home page button -->
     <!-- People usually place a logo here, though I don't have one so we put whatever stuff. -->
     <!-- This icon (or whatever) shall navigate to the home page. So using the home icon ought to be a nice choice... -->
-    <div id="nav-bar-home" class="nav-bar-content nav-bar-button">
+    <el-menu-item id="nav-bar-home">
       <el-icon><House /></el-icon>
       Blog主体施工中
-    </div>
+    </el-menu-item>
 
     <!-- Right side: misc stuff -->
     <!-- TODO: search bar, about (author, powered by etc.), github, dark mode switch -->
     <!-- In this commit we add a dark mode button, yet useless for now. We focus on nav bar button effect for now. -->
     <!-- Next: https://vueuse.org/core/useDark/#usedark -->
-    <div id="nav-bar-utils" class="nav-bar-content">
+    <div class="nav-bar-non-btn">
       <el-switch
-        class="nav-bar-content"
         v-model="enable_dark_mode"
         :inactive-action-icon="Sunrise"
         :active-action-icon="MoonNight"
@@ -23,7 +22,7 @@
         title="目前没实现"
       />
     </div>
-  </div>
+  </el-menu>
 </template>
 
 <script setup lang="ts">
@@ -34,20 +33,13 @@
 </script>
 
 <style scoped>
-  #top-nav-bar {
-    display: flex;
-    margin: 0;
-    padding: 0;
-    width: 100%;
-    font-size: 1.5rem;
-    height: 4rem;
-    border-bottom: 5px;
-    box-shadow: 0 5px 5px grey;
+  .el-menu--horizontal > .el-menu-item:nth-child(1) {
+    margin-right: auto;
   }
-  .nav-bar-content {
+  .nav-bar-non-btn {
     height: 100%;
-    align-items: center;
-    text-align: center;
-    line-height: 100%;
+    justify-content: center;
+    align-content: center;
+    padding: 0 var(--el-menu-base-level-padding);
   }
 </style>
