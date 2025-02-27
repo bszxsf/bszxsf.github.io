@@ -11,25 +11,23 @@
 
     <!-- Right side: misc stuff -->
     <!-- TODO: search bar, about (author, powered by etc.), github, dark mode switch -->
-    <!-- In this commit we add a dark mode button, yet useless for now. We focus on nav bar button effect for now. -->
-    <!-- Next: https://vueuse.org/core/useDark/#usedark -->
+
     <div class="nav-bar-non-btn">
       <el-switch
-        v-model="enable_dark_mode"
+        v-model="isDark"
         :inactive-action-icon="Sunrise"
         :active-action-icon="MoonNight"
-        style="--el-switch-on-color: #001a26"
-        title="目前没实现"
+        style="--el-switch-on-color: var(--el-switch-off-color)"
+        title="夜间模式"
       />
     </div>
   </el-menu>
 </template>
 
 <script setup lang="ts">
-  import { ref } from 'vue'
   import { Sunrise, MoonNight } from '@element-plus/icons-vue';
 
-  const enable_dark_mode = ref(false)
+  const isDark = useDark()
 </script>
 
 <style scoped>
