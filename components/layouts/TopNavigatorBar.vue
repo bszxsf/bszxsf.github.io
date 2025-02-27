@@ -11,7 +11,7 @@
 
     <!-- Right side: misc stuff -->
     <!-- TODO: search bar, about (author, powered by etc.), github, dark mode switch -->
-    <el-menu-item index="about">
+    <el-menu-item index="/about">
       关于
     </el-menu-item>
     <div class="nav-bar-non-btn">
