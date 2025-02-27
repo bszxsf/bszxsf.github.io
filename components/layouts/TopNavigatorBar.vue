@@ -34,7 +34,18 @@
 <script setup lang="ts">
   import { Sunrise, MoonNight } from '@element-plus/icons-vue';
 
-  const isDark = useDark()
+  // The following code fixes a hydration issue.
+  // With the simple version as many tutorials show:
+  //   const isDark = useDark()
+  // Things go wrong when you switch to dark mode and then refresh.
+  // Dark mode is actually turned on, yet useDark() requires client work.
+  // Nuxt enables server side rendering, which means, server side renders the
+  // switch WITHOUT knowing the correct value of useDark(). Thus, we have to
+  // defer the initialization of isDark.
+  let isDark = ref(false)
+  onMounted(() => {
+    isDark = useDark()
+  })
 </script>
 
 <style scoped>
