@@ -16,7 +16,7 @@
 <!-- Used to test locally. No need to build before pushing -->
 
 <script setup lang="ts">
-  import TopNavigatorBar from '~/components/TopNavigatorBar.vue'
+  import TopNavigatorBar from '~/components/layouts/TopNavigatorBar.vue'
 
   let popup = function() {
     alert("弹出窗口")
