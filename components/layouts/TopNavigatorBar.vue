@@ -23,6 +23,11 @@
         title="夜间模式"
       />
     </div>
+    <div class="nav-bar-non-btn">
+      <a href="https://github.com/bszxsf/bszxsf.github.io" target="_blank">
+        <Icon name="carbon:logo-github" />
+      </a>
+    </div>
   </el-menu>
 </template>
 
