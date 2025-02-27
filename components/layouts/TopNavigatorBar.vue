@@ -45,6 +45,8 @@
     height: 100%;
     justify-content: center;
     align-content: center;
+    display: flex;
+    align-items: center;
     padding: 0 var(--el-menu-base-level-padding);
   }
 </style>
