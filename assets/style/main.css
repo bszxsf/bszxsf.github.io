@@ -2,3 +2,6 @@ html, body {
   margin: 0;
   padding: 0;
 }
+.iconify {
+  color: var(--el-menu-text-color);
+}
