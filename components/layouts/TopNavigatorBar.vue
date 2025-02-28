@@ -19,7 +19,7 @@
         v-model="isDark"
         :inactive-action-icon="Sunrise"
         :active-action-icon="MoonNight"
-        style="--el-switch-on-color: var(--el-switch-off-color)"
+        style="--el-switch-on-color: var(--el-switch-off-color);"
         title="夜间模式"
       />
     </div>

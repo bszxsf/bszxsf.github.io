@@ -1,6 +1,6 @@
 <template>
   <el-container>
-    <el-header style="margin: 0; padding: 0">
+    <el-header style="margin: 0; padding: 0;">
       <TopNavigatorBar />
     </el-header>
     <el-container>
