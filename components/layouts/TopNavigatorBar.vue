@@ -44,7 +44,7 @@
   // defer the initialization of isDark.
   let isDark = ref(false)
   onMounted(() => {
-    isDark = useDark()
+    isDark = useDark({ disableTransition: false })
   })
 </script>
 
