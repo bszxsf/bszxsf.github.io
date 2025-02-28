@@ -6,7 +6,7 @@
       <!-- ElBreadcrumb style, including font size, seems hardcoded. -->
       <!-- We simply have to directly use the class. -->
       <el-icon><Back /></el-icon>
-      <div style="font-weight: bold; margin-left: calc(var(--el-main-padding) * 0.2);">返回</div>
+      <div style="font-weight: bold; padding-left: calc(var(--el-main-padding) * 0.2);">返回</div>
     </div>
     <el-divider direction="vertical" />
     <!-- We don't modify the paths. Path doesn't have an id. No need to use a key. -->
