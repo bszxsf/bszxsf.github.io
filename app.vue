@@ -1,7 +1,7 @@
 <template>
   <el-container>
     <el-header style="margin: 0; padding: 0;">
-      <top-navigator-bar style="position: fixed; width: 100%;" />
+      <top-navigator-bar style="position: fixed; width: 100%; z-index: 10;" />
     </el-header>
     <el-container style="height: 100%;">
       <el-aside style="width: var(--app-sidebar-width);">
