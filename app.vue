@@ -5,9 +5,11 @@
     </el-header>
     <el-container style="height: 100%;">
       <el-aside style="width: var(--app-sidebar-width);">
-        <el-scrollbar style="position: fixed; width: var(--app-sidebar-width); height: calc(100vh - var(--el-menu-horizontal-height)); border-right: 1px solid var(--el-menu-border-color);">
-          <side-navigator style="height: 100%; padding-top: var(--el-menu-base-level-padding);" />
-        </el-scrollbar>
+        <div id="nav-sidebar-scroll">
+          <el-scrollbar>
+            <side-navigator style="height: 100%; padding-top: var(--el-menu-base-level-padding);" />
+          </el-scrollbar>
+        </div>
       </el-aside>
       <el-main>
         <NuxtPage />
@@ -24,3 +26,12 @@
   import TopNavigatorBar from '~/components/layouts/TopNavigatorBar.vue'
   import SideNavigator from './components/layouts/SideNavigator.vue'
 </script>
+
+<style scoped>
+  #nav-sidebar-scroll {
+    position: fixed;
+    width: var(--app-sidebar-width);
+    height: calc(100vh - var(--el-menu-horizontal-height));
+    border-right: 1px solid var(--el-menu-border-color);
+  }
+</style>
