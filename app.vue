@@ -1,8 +1,8 @@
 <template>
-  <div style="height: 100%;">
-    <el-affix>
-      <top-navigator-bar />
-    </el-affix>
+  <el-container>
+    <el-header style="margin: 0; padding: 0;">
+      <top-navigator-bar style="position: fixed; width: 100%;" />
+    </el-header>
     <el-container style="height: 100%;">
       <el-aside style="width: var(--app-sidebar-width);">
         <el-scrollbar view-style="height: 100%;" style="position: fixed; width: var(--app-sidebar-width);">
@@ -13,7 +13,7 @@
         <NuxtPage />
       </el-main>
     </el-container>
-  </div>
+  </el-container>
 </template>
 
 <!-- Note: Build instructions: https://nuxt.com/deploy/github-pages -->
