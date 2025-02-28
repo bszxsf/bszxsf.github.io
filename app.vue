@@ -1,17 +1,19 @@
 <template>
-  <el-container style="height: 100%;">
-    <el-header style="margin: 0; padding: 0;">
+  <div style="height: 100%;">
+    <el-affix>
       <top-navigator-bar />
-    </el-header>
-    <el-container>
-      <el-aside>
-        <side-navigator style="height: 100%; padding-top: var(--el-menu-base-level-padding);" />
+    </el-affix>
+    <el-container style="height: 100%;">
+      <el-aside style="width: var(--app-sidebar-width);">
+        <el-scrollbar view-style="height: 100%;" style="position: fixed; width: var(--app-sidebar-width);">
+          <side-navigator style="height: 100%; padding-top: var(--el-menu-base-level-padding);" />
+        </el-scrollbar>
       </el-aside>
       <el-main>
         <NuxtPage />
       </el-main>
     </el-container>
-  </el-container>
+  </div>
 </template>
 
 <!-- Note: Build instructions: https://nuxt.com/deploy/github-pages -->

@@ -1,3 +1,7 @@
+:root {
+  --app-sidebar-width: 300px;
+}
+
 html, body, #app {
   margin: 0;
   padding: 0;
