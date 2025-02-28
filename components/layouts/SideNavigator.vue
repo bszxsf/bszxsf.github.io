@@ -1,5 +1,5 @@
 <template>
-  <el-menu mode="vertical" router>
+  <el-menu mode="vertical" router style="border-right: none;">
     <el-menu-item-group title="文章">
       <el-menu-item :disabled="true">
         空空如也
