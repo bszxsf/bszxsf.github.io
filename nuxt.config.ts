@@ -6,4 +6,7 @@ export default defineNuxtConfig({
   modules: ['@element-plus/nuxt', '@vueuse/nuxt', '@nuxt/icon'],
   css: ['~/assets/style/main.css', 'element-plus/theme-chalk/dark/css-vars.css'],
   // TODO: icon bundle, see https://nuxt.com/modules/icon
+  app: {
+    rootId: "app"
+  }
 })

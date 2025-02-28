@@ -1,12 +1,12 @@
 <template>
-  <el-container>
+  <el-container style="height: 100%;">
     <el-header style="margin: 0; padding: 0;">
       <TopNavigatorBar />
     </el-header>
     <el-container>
       <el-aside>
         <!-- TODO: 宽度自适应 -->
-        <SideNavigator />
+        <SideNavigator style="height: 100%;" />
       </el-aside>
       <el-main>
         <NuxtPage />
