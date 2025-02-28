@@ -6,7 +6,7 @@
     <el-container>
       <el-aside>
         <!-- TODO: 宽度自适应 -->
-        <SideNavigator style="height: 100%;" />
+        <SideNavigator style="height: 100%; padding-top: var(--el-menu-base-level-padding);" />
       </el-aside>
       <el-main>
         <NuxtPage />
