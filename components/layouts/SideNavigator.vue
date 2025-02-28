@@ -9,13 +9,13 @@
     <el-menu-item-group title="其他">
       <el-menu-item index="/">
         <template #title>
-          <el-icon><HomeFilled /></el-icon>
+          <el-icon><home-filled /></el-icon>
           <span>主页</span>
         </template>
       </el-menu-item>
       <el-menu-item index="/about">
         <template #title>
-          <el-icon><InfoFilled /></el-icon>
+          <el-icon><info-filled /></el-icon>
           <span>关于</span>
         </template>
       </el-menu-item>

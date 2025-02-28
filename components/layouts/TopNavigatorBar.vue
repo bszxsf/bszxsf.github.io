@@ -5,7 +5,7 @@
     <!-- People usually place a logo here, though I don't have one so we put whatever stuff. -->
     <!-- This icon (or whatever) shall navigate to the home page. So using the home icon ought to be a nice choice... -->
     <el-menu-item index="/">
-      <el-icon><House /></el-icon>
+      <el-icon><house /></el-icon>
       Blog主体施工中
     </el-menu-item>
 
