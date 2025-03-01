@@ -12,6 +12,7 @@
         </div>
       </el-aside>
       <el-main>
+        <el-backtop />
         <NuxtPage />
       </el-main>
     </el-container>
