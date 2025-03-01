@@ -1,1 +1,1 @@
-export * from './NamedPaths'
+export * from './NamedPaths';
