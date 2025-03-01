@@ -1,13 +1,13 @@
 <template>
   <el-container>
     <el-header style="margin: 0; padding: 0">
-      <top-navigator-bar style="position: fixed; width: 100%; z-index: 10" />
+      <navigator-top style="position: fixed; width: 100%; z-index: 10" />
     </el-header>
     <el-container style="height: 100%">
       <el-aside style="width: var(--app-sidebar-width)">
         <div id="nav-sidebar-scroll">
           <el-scrollbar>
-            <side-navigator
+            <navigator-side
               style="
                 height: 100%;
                 padding-top: var(--el-menu-base-level-padding);
@@ -23,15 +23,6 @@
     </el-container>
   </el-container>
 </template>
-
-<!-- Note: Build instructions: https://nuxt.com/deploy/github-pages -->
-<!-- npx nuxt build --preset github_pages -->
-<!-- Used to test locally. No need to build before pushing -->
-
-<script setup lang="ts">
-import TopNavigatorBar from '~/components/layouts/TopNavigatorBar.vue';
-import SideNavigator from '~/components/layouts/SideNavigator.vue';
-</script>
 
 <style scoped>
 #nav-sidebar-scroll {

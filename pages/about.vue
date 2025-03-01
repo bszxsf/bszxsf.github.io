@@ -140,9 +140,6 @@
 </template>
 
 <script setup lang="ts">
-import BreadCrumbWithBack from '~/components/BreadCrumbWithBack.vue';
-
-const router = useRouter();
 const aboutPaths: NamedPaths = [
   { name: '主页', to: '/' },
   { name: '关于', to: '/about' }
