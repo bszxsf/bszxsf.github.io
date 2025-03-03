@@ -10,4 +10,8 @@ const router = useRouter();
 
 const event = useRequestEvent();
 setResponseStatus(event, 404, 'Resource not found');
+
+useHead({
+  title: '404 - 资源不存在'
+});
 </script>

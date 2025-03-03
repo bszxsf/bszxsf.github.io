@@ -160,4 +160,8 @@ const aboutPaths: NamedPaths = [
   { name: '主页', to: '/' },
   { name: '关于', to: '/about' }
 ];
+
+useHead({
+  title: '关于'
+});
 </script>
