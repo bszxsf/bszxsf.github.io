@@ -7,4 +7,7 @@
 
 <script setup lang="ts">
 const router = useRouter();
+
+const event = useRequestEvent();
+setResponseStatus(event, 404, 'Resource not found');
 </script>
