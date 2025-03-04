@@ -10,7 +10,7 @@ const router = useRouter();
 
 if (import.meta.server) {
   const event = useRequestEvent();
-  setResponseStatus(event!, 404, 'Resource not found');
+  setResponseStatus(event!, 404);
 }
 
 useHead({
