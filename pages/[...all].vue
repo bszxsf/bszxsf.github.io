@@ -1,19 +1,3 @@
 <template>
-  <div>
-    这里是404页面。目前这里没有其他东西，我们稍后会让这里看起来不这样荒芜。
-    <el-button @click="router.back()">点击这里返回</el-button>
-  </div>
+  <error-display404 />
 </template>
-
-<script setup lang="ts">
-const router = useRouter();
-
-if (import.meta.server) {
-  const event = useRequestEvent();
-  setResponseStatus(event!, 404);
-}
-
-useHead({
-  title: '404 - 资源不存在'
-});
-</script>
