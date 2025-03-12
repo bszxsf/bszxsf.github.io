@@ -6,13 +6,17 @@
 <script setup lang="ts">
 const route = useRoute();
 
+const postIdStr: string =
+  '/' +
+  (Array.isArray(route.params.postid)
+    ? route.params.postid.join('/')
+    : route.params.postid);
+
 const { data: post } = await useAsyncData(() =>
-  queryCollection('posts')
-    .path('/posts/' + route.params.postid)
-    .first()
+  queryCollection('posts').path(postIdStr).first()
 );
 
 useHead({
-  title: route.params.postid as string
+  title: postIdStr
 });
 </script>
