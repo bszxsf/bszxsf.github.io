@@ -22,14 +22,12 @@
   },
   "devDependencies": {
     "@iconify-json/carbon": "^1.2.8",
-    "@typescript-eslint/eslint-plugin": "^8.25.0",
-    "@typescript-eslint/parser": "^8.25.0",
-    "eslint": "^8.57.1",
-    "eslint-config-prettier": "^10.0.2",
-    "eslint-config-standard": "^17.1.0",
-    "eslint-plugin-import": "^2.31.0",
-    "eslint-plugin-n": "^16.6.2",
-    "eslint-plugin-promise": "^6.6.0",
+    "@nuxt/eslint": "^1.2.0",
+    "eslint": "^9.22.0",
+    "eslint-config-prettier": "^10.1.1",
+    "eslint-plugin-nuxt": "^4.0.0",
+    "eslint-plugin-prettier": "^5.2.3",
+    "eslint-plugin-vue": "^10.0.0",
     "prettier": "^3.5.2",
     "typescript": "^5.7.3"
   }
