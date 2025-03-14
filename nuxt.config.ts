@@ -24,7 +24,8 @@ export default defineNuxtConfig({
         slugifyOptions: {
           // See: https://github.com/nuxt/content/pull/2898
           // This keeps as much characters (from corresponding filename) as possible in generated URLs.
-          remove: /[$*+~()'"!\-=#?:@]/g
+          remove: /[$*+~()'"!\-=#?:@]/g,
+          lower: false
         }
       },
       // Default settings. TS says this is required.
