@@ -10,6 +10,7 @@
     "postinstall": "nuxt prepare"
   },
   "dependencies": {
+    "nuxtpath": "file:./nuxtpath",
     "@element-plus/icons-vue": "^2.3.1",
     "@element-plus/nuxt": "^1.1.1",
     "@nuxt/content": "^3.3.0",
