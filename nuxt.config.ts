@@ -17,5 +17,23 @@ export default defineNuxtConfig({
   // TODO: icon bundle, see https://nuxt.com/modules/icon
   app: {
     rootId: 'app'
+  },
+  content: {
+    build: {
+      pathMeta: {
+        slugifyOptions: {
+          // See: https://github.com/nuxt/content/pull/2898
+          // This keeps as much characters (from corresponding filename) as possible in generated URLs.
+          remove: /[$*+~()'"!\-=#?:@]/g
+        }
+      },
+      // Default settings. TS says this is required.
+      markdown: {
+        toc: {
+          depth: 2,
+          searchDepth: 2
+        }
+      }
+    }
   }
 });
