@@ -20,6 +20,7 @@ export default defineNuxtConfig({
   },
   content: {
     build: {
+      transformers: ['~/transformers/index-page-title'],
       pathMeta: {
         slugifyOptions: {
           // See: https://github.com/nuxt/content/pull/2898
