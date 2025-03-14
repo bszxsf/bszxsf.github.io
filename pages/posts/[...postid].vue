@@ -6,14 +6,12 @@
 <script setup lang="ts">
 const route = useRoute();
 
-const postIdStr: string =
-  '/' +
-  (Array.isArray(route.params.postid)
-    ? route.params.postid.join('/')
-    : route.params.postid);
-const postTitleStr: string = Array.isArray(route.params.postid)
-  ? route.params.postid.reverse().join(' | ')
-  : route.params.postid;
+const postIdArr: string[] = ([] as string[]).concat(route.params.postid);
+if (postIdArr[postIdArr.length - 1] == '') {
+  postIdArr.pop();
+}
+const postIdStr: string = '/' + postIdArr;
+const postTitleStr: string = postIdArr.reverse().join(' | ');
 
 const { data: post } = await useAsyncData(() =>
   queryCollection('posts').path(postIdStr).first()
