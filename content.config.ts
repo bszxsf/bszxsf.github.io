@@ -1,4 +1,4 @@
-import { defineContentConfig, defineCollection } from '@nuxt/content';
+import { defineContentConfig, defineCollection, z } from '@nuxt/content';
 
 export default defineContentConfig({
   collections: {
@@ -7,7 +7,11 @@ export default defineContentConfig({
       source: {
         prefix: '/',
         include: 'posts/**/*.md' // Note: '~/content' is implied.
-      }
+      },
+      schema: z.object({
+        published: z.boolean().default(true),
+        date: z.string().date()
+      })
     })
   }
 });
