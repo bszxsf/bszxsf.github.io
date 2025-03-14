@@ -10,7 +10,7 @@ const postIdArr: string[] = ([] as string[]).concat(route.params.postid);
 if (postIdArr[postIdArr.length - 1] == '') {
   postIdArr.pop();
 }
-const postIdStr: string = '/' + postIdArr;
+const postIdStr: string = '/' + postIdArr.join('/');
 const postTitleStr: string = postIdArr.reverse().join(' | ');
 
 const { data: post } = await useAsyncData(() =>
