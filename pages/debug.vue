@@ -68,7 +68,7 @@
         content="这会将您导航到一个发生致命错误时显示的页面。"
         :show-after="popupDelay"
       >
-        <el-button type="primary" @click="triggerError(errInfoFormRef)">
+        <el-button type="primary" @click="triggerError(errInfoFormRef!)">
           触发错误
         </el-button>
       </el-tooltip>
@@ -78,7 +78,7 @@
       >
         <el-button @click="previewError()">预览内容</el-button>
       </el-tooltip>
-      <el-button @click="resetErrorInfo(errInfoFormRef)">重置</el-button>
+      <el-button @click="resetErrorInfo(errInfoFormRef!)">重置</el-button>
     </el-form>
   </div>
 </template>
@@ -122,11 +122,7 @@ const errInfoRules = reactive<FormRules<ErrInfoRule>>({
 });
 
 const formSize = ref<ComponentSize>('default');
-// const errInfoFormRef = useTemplateRef<FormInstance>('errInfoFormRef');
-const errInfoFormRef = ref<FormInstance>();
-// TODO: Writing it the other way works fine (?), yet ts-plugin reports:
-//       cannot assign null to ... (the super long type declaration)
-//       Requires further investigation.
+const errInfoFormRef = useTemplateRef<FormInstance>('errInfoFormRef');
 
 const trigger404 = () => {
   return navigateTo('/someresourcethatdoesnotexist');
