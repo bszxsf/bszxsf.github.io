@@ -10,7 +10,7 @@ export default defineContentConfig({
       },
       schema: z.object({
         published: z.boolean().default(true),
-        date: z.string().date()
+        datetime: z.string().datetime({ offset: true }).optional()
       })
     })
   }
