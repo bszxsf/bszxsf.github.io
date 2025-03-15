@@ -1,7 +1,11 @@
 <template>
   <div v-if="post">
     <bread-crumb-with-back :paths="postPaths" />
-    <content-renderer v-if="post" :value="post" />
+    <content-renderer
+      v-if="post"
+      :value="post"
+      style="padding: var(--el-main-padding)"
+    />
   </div>
   <error-display404 v-else />
 </template>
