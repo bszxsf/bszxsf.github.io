@@ -1,0 +1,14 @@
+/*
+ * This file is used to override some element plus dark theme settings.
+ * See https://element-plus.org/zh-CN/guide/theming.html
+ * See https://element-plus.org/zh-CN/guide/dark-mode.html#%E8%87%AA%E5%AE%9A%E4%B9%89%E5%8F%98%E9%87%8F
+ * See https://github.com/element-plus/element-plus/blob/dev/packages/theme-chalk/src/dark/var.scss, line 136, commit 0e8454a
+ * Attempt: SCSS does not work. We switch to CSS solution.
+ * See https://github.com/element-plus/element-plus/issues/9076
+ */
+
+html.dark {
+  /* Element plus set this to transparent, which is not expected. HTML background color is actually affected by color-scheme, and Canvas is the default system color for it. */
+  /* See https://stackoverflow.com/questions/72243387/can-i-find-out-the-color-scheme-in-the-browser */
+  --el-fill-color-blank: Canvas;
+}

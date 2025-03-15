@@ -12,7 +12,8 @@ export default defineNuxtConfig({
   ],
   css: [
     '~/assets/styles/main.css',
-    'element-plus/theme-chalk/dark/css-vars.css'
+    'element-plus/theme-chalk/dark/css-vars.css',
+    '~/assets/styles/dark/css-vars.css'
   ],
   // TODO: icon bundle, see https://nuxt.com/modules/icon
   app: {
