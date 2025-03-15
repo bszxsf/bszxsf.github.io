@@ -11,7 +11,7 @@ export default defineNuxtConfig({
     '@nuxt/eslint'
   ],
   css: [
-    '~/assets/style/main.css',
+    '~/assets/styles/main.css',
     'element-plus/theme-chalk/dark/css-vars.css'
   ],
   // TODO: icon bundle, see https://nuxt.com/modules/icon
