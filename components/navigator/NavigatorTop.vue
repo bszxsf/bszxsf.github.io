@@ -18,7 +18,7 @@
         :inactive-action-icon="Sunrise"
         :active-action-icon="MoonNight"
         style="--el-switch-on-color: var(--el-switch-off-color)"
-        title="夜间模式"
+        title="深色模式"
       />
     </div>
     <div class="nav-bar-non-btn">
