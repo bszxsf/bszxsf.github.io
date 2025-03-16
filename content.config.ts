@@ -12,6 +12,13 @@ export default defineContentConfig({
         published: z.boolean().default(true),
         datetime: z.string().datetime({ offset: true }).optional()
       })
+    }),
+    site: defineCollection({
+      type: 'page',
+      source: {
+        prefix: '/',
+        include: '*.md'
+      }
     })
   }
 });
