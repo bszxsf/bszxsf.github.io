@@ -5,6 +5,8 @@
       v-if="post"
       :value="post"
       style="padding: var(--el-main-padding)"
+      :prose="true"
+      class="prose dark:prose-invert"
     />
   </div>
   <error-display404 v-else />

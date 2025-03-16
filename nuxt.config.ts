@@ -1,4 +1,8 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
+// https://tailwindcss.com/docs/installation/framework-guides/nuxt
+
+import tailwindcss from '@tailwindcss/vite';
+
 export default defineNuxtConfig({
   compatibilityDate: '2025-03-14',
   devtools: { enabled: true },
@@ -38,5 +42,8 @@ export default defineNuxtConfig({
         }
       }
     }
+  },
+  vite: {
+    plugins: [tailwindcss()]
   }
 });

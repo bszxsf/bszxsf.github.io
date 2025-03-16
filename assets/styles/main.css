@@ -1,3 +1,6 @@
+@import 'tailwindcss';
+@plugin '@tailwindcss/typography';
+
 :root {
   --app-sidebar-width: 300px;
 }

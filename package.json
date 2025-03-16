@@ -10,20 +10,23 @@
     "postinstall": "nuxt prepare"
   },
   "dependencies": {
-    "nuxtpath": "file:./nuxtpath",
     "@element-plus/icons-vue": "^2.3.1",
     "@element-plus/nuxt": "^1.1.1",
     "@nuxt/content": "^3.3.0",
     "@nuxt/icon": "^1.11.0",
+    "@tailwindcss/vite": "^4.0.14",
     "@vueuse/nuxt": "^13.0.0",
     "element-plus": "^2.9.6",
     "nuxt": "^3.16.0",
+    "nuxtpath": "file:./nuxtpath",
+    "tailwindcss": "^4.0.14",
     "vue": "latest",
     "vue-router": "latest"
   },
   "devDependencies": {
     "@iconify-json/carbon": "^1.2.8",
     "@nuxt/eslint": "^1.2.0",
+    "@tailwindcss/typography": "^0.5.16",
     "eslint": "^9.22.0",
     "eslint-config-prettier": "^10.1.1",
     "eslint-plugin-nuxt": "^4.0.0",
