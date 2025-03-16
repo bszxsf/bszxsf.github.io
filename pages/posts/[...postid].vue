@@ -1,15 +1,17 @@
 <template>
-  <div v-if="post">
-    <bread-crumb-with-back :paths="postPaths" />
-    <content-renderer
-      v-if="post"
-      :value="post"
-      style="padding: var(--el-main-padding)"
-      :prose="true"
-      class="prose dark:prose-invert"
-    />
+  <div style="width: 100%">
+    <div v-if="post" style="width: 100%">
+      <bread-crumb-with-back :paths="postPaths" />
+      <content-renderer
+        v-if="post"
+        :value="post"
+        style="padding: var(--el-main-padding); max-width: 100%"
+        :prose="true"
+        class="prose dark:prose-invert"
+      />
+    </div>
+    <error-display404 v-else />
   </div>
-  <error-display404 v-else />
 </template>
 
 <script setup lang="ts">
