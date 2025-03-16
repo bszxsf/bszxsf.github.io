@@ -16,3 +16,6 @@ body,
 .iconify {
   color: var(--el-menu-text-color);
 }
+
+/* Tailwindcs dark mode, function without prefers-color-scheme media query */
+@custom-variant dark (&:where(.dark, .dark *));
