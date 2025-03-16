@@ -17,5 +17,16 @@ body,
   color: var(--el-menu-text-color);
 }
 
+/* shiki themes */
+/* I don't know why but without the non-dark styles, shiki always shows dark mode :( */
+/* And the dark styles seem unnecessary. It's the opposite of the doc! */
+html .shiki,
+html .shiki span {
+  background-color: var(--shiki-bg) !important;
+  font-style: var(--shiki-font-style) !important;
+  font-weight: var(--shiki-font-weight) !important;
+  text-decoration: var(--shiki-text-decoration) !important;
+}
+
 /* Tailwindcs dark mode, function without prefers-color-scheme media query */
 @custom-variant dark (&:where(.dark, .dark *));
