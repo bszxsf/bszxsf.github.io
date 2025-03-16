@@ -39,6 +39,9 @@ export default defineNuxtConfig({
         toc: {
           depth: 2,
           searchDepth: 2
+        },
+        highlight: {
+          langs: ['c', 'cpp', 'java', 'js', 'ts', 'html', 'css', 'vue']
         }
       }
     }
