@@ -5,7 +5,11 @@
       <content-renderer
         v-if="post"
         :value="post"
-        style="padding: var(--el-main-padding); max-width: 100%"
+        style="
+          padding: var(--el-main-padding);
+          max-width: 100%;
+          word-wrap: break-word;
+        "
         :prose="true"
         class="prose dark:prose-invert"
       />
