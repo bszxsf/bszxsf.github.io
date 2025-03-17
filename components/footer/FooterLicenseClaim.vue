@@ -12,12 +12,13 @@
         xmlns:cc="http://creativecommons.org/ns#"
         style="display: flex; word-wrap: normal"
       >
-        This work is licensed under
+        <nuxt-link to="/">This site</nuxt-link>
+        &nbsp;is licensed under&nbsp;
         <a
           href="https://creativecommons.org/licenses/by-nc-sa/4.0/?ref=chooser-v1"
           target="_blank"
           rel="license noopener noreferrer"
-          style="display: flex; margin-left: 0.5em"
+          style="display: flex"
         >
           CC BY-NC-SA 4.0
           <img
@@ -51,5 +52,10 @@
   height: 1em !important;
   margin-left: 3px;
   vertical-align: text-bottom;
+}
+
+a:hover {
+  color: var(--el-menu-hover-text-color);
+  transition: color var(--el-transition-duration);
 }
 </style>
