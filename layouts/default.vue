@@ -20,9 +20,12 @@
           </el-scrollbar>
         </div>
       </el-aside>
-      <el-main>
+      <el-main style="display: flex; flex-direction: column">
         <el-backtop />
-        <slot />
+        <div style="flex-grow: 1">
+          <slot />
+        </div>
+        <footer-license-claim />
       </el-main>
     </el-container>
   </el-container>
