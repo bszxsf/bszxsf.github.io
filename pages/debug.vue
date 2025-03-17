@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="prose dark:prose-invert">
     <h1>开发者页面</h1>
     <p>您发现了开发者页面！</p>
     <p>
