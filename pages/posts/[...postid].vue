@@ -3,7 +3,6 @@
     <div v-if="post" style="width: 100%">
       <bread-crumb-with-back :paths="postPaths" />
       <content-renderer
-        v-if="post"
         :value="post"
         style="
           padding: var(--el-main-padding);
