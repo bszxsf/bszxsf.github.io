@@ -22,6 +22,6 @@
 
 <script setup lang="ts">
 const { data: navInfo } = await useAsyncData(() =>
-  queryCollectionNavigation('posts').where('published', '=', true)
+  queryCollectionNavigation('posts').where('published', 'IS NOT NULL')
 );
 </script>
