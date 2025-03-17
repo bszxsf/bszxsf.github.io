@@ -1,11 +1,13 @@
 <template>
-  <el-container>
+  <el-container style="height: 100%">
     <el-header style="margin: 0; padding: 0">
       <el-affix>
         <navigator-top style="width: 100%; z-index: var(--el-index-top)" />
       </el-affix>
     </el-header>
-    <el-container style="height: 100%">
+    <el-container
+      style="height: calc(100vh - var(--el-menu-horizontal-height))"
+    >
       <el-aside style="width: var(--app-sidebar-width)">
         <div id="nav-sidebar-scroll">
           <el-scrollbar>
