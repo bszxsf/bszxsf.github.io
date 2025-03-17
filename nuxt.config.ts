@@ -41,7 +41,18 @@ export default defineNuxtConfig({
           searchDepth: 2
         },
         highlight: {
-          langs: ['c', 'cpp', 'java', 'js', 'ts', 'html', 'css', 'vue']
+          langs: [
+            'c',
+            'cpp',
+            'java',
+            'js',
+            'ts',
+            'html',
+            'css',
+            'vue',
+            'md',
+            'mdc'
+          ]
         }
       }
     }
