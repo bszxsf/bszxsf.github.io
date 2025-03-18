@@ -2,6 +2,28 @@
   <div style="width: 100%">
     <div v-if="post" style="width: 100%">
       <bread-crumb-with-back :paths="postPaths" />
+      <div
+        v-if="post!.published"
+        style="padding: var(--el-main-padding)"
+        class="text-sm italic text-gray-800 dark:text-gray-200"
+      >
+        <p>
+          发布于&nbsp;
+          {{
+            DateTime.fromISO(post!.published).toLocaleString(
+              DateTime.DATETIME_FULL
+            )
+          }}
+        </p>
+        <p v-if="post!.modified">
+          最后修改于&nbsp;
+          {{
+            DateTime.fromISO(post!.modified).toLocaleString(
+              DateTime.DATETIME_FULL
+            )
+          }}
+        </p>
+      </div>
       <content-renderer
         :value="post"
         style="
@@ -18,6 +40,8 @@
 </template>
 
 <script setup lang="ts">
+import { DateTime } from 'luxon';
+
 const route = useRoute();
 
 const postIdArr: string[] = ([] as string[]).concat(route.params.postid);
