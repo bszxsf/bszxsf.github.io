@@ -51,7 +51,8 @@ export default defineNuxtConfig({
             'css',
             'vue',
             'md',
-            'mdc'
+            'mdc',
+            'json'
           ]
         }
       }
