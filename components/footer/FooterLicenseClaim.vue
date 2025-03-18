@@ -54,6 +54,9 @@
   vertical-align: text-bottom;
 }
 
+a {
+  transition: color var(--el-transition-duration-fast);
+}
 a:hover {
   color: var(--el-menu-hover-text-color);
   transition: color var(--el-transition-duration);
