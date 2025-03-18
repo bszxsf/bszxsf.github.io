@@ -32,12 +32,4 @@ let { navInfo } = defineProps<{
   navInfo: ContentNavigationItem[];
   catTitle?: string;
 }>();
-
-// Nodes with a 'children' field is a diectory, while others are leaves.
-const isDirectory = (node: ContentNavigationItem) => {
-  return node.children != undefined;
-};
-const isPost = (node: ContentNavigationItem) => {
-  return !isDirectory(node);
-};
 </script>
