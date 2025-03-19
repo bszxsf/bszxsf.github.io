@@ -2,6 +2,7 @@
 // https://tailwindcss.com/docs/installation/framework-guides/nuxt
 
 import tailwindcss from '@tailwindcss/vite';
+import svgLoader from 'vite-svg-loader';
 
 export default defineNuxtConfig({
   compatibilityDate: '2025-03-14',
@@ -59,6 +60,6 @@ export default defineNuxtConfig({
     }
   },
   vite: {
-    plugins: [tailwindcss()]
+    plugins: [tailwindcss(), svgLoader()]
   }
 });
