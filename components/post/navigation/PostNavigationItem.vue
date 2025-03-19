@@ -60,9 +60,37 @@ switch (border) {
 <style scoped>
 @reference 'tailwindcss';
 
-.nav-item:hover {
-  /* CSS transition is somehow mind-blowing, I'll do this later. */
+.nav-item {
+  position: relative;
 }
+.nav-item::before {
+  z-index: -1;
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: var(--el-color-primary-light-9);
+  background-size: contain;
+
+  mask-image: linear-gradient(
+    120deg,
+    rgba(0, 0, 0, 1) 5%,
+    rgba(0, 0, 0, 0.2) 20%,
+    rgba(0, 0, 0, 0) 25%
+  );
+  /* Trick: linear-gradient cannot have a transition, */
+  /* but we still can move it via `mask-position`, */
+  /* which can trigger a transition. */
+  mask-size: 200% 100%;
+  mask-position: right;
+  transition: mask-position 0.5s ease;
+}
+.nav-item:hover::before {
+  mask-position: left;
+}
+
 .nav-item-border-top {
   border-top: 1px var(--el-border-color) var(--el-border-style);
 }
