@@ -28,6 +28,10 @@ const postsIndexPaths: NamedPaths = [
   { name: '主页', to: '/' },
   { name: '文章', to: '/posts' }
 ];
+
+useHead({
+  title: '文章概览'
+});
 </script>
 
 <style scoped>
