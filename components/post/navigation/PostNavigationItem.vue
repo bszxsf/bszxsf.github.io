@@ -14,7 +14,10 @@
         </p>
       </div>
       <p class="item-title">{{ title }}</p>
-      <div class="abstract">{{ description }}</div>
+      <div v-if="description.length > 1" class="abstract">
+        {{ description }}
+      </div>
+      <div v-else class="abstract italic">&lt;本文没有摘要&gt;</div>
     </nuxt-link>
   </div>
 </template>
