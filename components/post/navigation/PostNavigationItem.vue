@@ -58,7 +58,7 @@ switch (border) {
 </script>
 
 <style scoped>
-@reference 'tailwindcss';
+@reference '~/assets/styles/main.css';
 
 .nav-item {
   position: relative;

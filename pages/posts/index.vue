@@ -35,7 +35,7 @@ useHead({
 </script>
 
 <style scoped>
-@reference 'tailwindcss';
+@reference '~/assets/styles/main.css';
 
 h1 {
   @apply text-4xl;
