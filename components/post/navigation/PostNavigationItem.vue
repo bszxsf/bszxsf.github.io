@@ -86,9 +86,11 @@ switch (border) {
   mask-size: 200% 100%;
   mask-position: right;
   transition: mask-position 0.5s ease;
+  /* mix-blend-mode: difference; */
 }
 .nav-item:hover::before {
   mask-position: left;
+  /* mix-blend-mode: difference; */
 }
 
 .nav-item-border-top {
@@ -105,6 +107,7 @@ switch (border) {
 .additional-info {
   @apply float-right text-gray-500 italic text-[0.8rem];
   padding: var(--el-main-padding) var(--el-main-padding) 0;
+  text-align: right;
 }
 .abstract {
   @apply text-base text-gray-600;
