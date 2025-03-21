@@ -7,7 +7,7 @@
             DateTime.fromISO(published).toLocaleString(DateTime.DATETIME_FULL)
           }}
         </p>
-        <p v-if="modified">
+        <p v-if="modified && modified != published">
           最后修改于&nbsp;{{
             DateTime.fromISO(modified).toLocaleString(DateTime.DATETIME_FULL)
           }}
