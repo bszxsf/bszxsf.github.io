@@ -1,7 +1,9 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 // https://tailwindcss.com/docs/installation/framework-guides/nuxt
 
+import type { PageCollections } from '@nuxt/content';
 import tailwindcss from '@tailwindcss/vite';
+import { DateTime } from 'luxon';
 import svgLoader from 'vite-svg-loader';
 
 export default defineNuxtConfig({
@@ -61,5 +63,25 @@ export default defineNuxtConfig({
   },
   vite: {
     plugins: [tailwindcss(), svgLoader()]
+  },
+  hooks: {
+    'content:file:afterParse'(ctx) {
+      if (ctx.collection.name == 'posts') {
+        // We know what the content is. As ts required, we have to convert it to 'unknown' first.
+        const file = (<unknown>ctx.content) as PageCollections['posts'];
+
+        if (file.published && !DateTime.fromISO(file.published).isValid) {
+          console.warn(
+            "⚠️ file '" + file.id + "' has invalid published datetime"
+          );
+        }
+        if (file.modified && !DateTime.fromISO(file.modified).isValid) {
+          console.warn(
+            "⚠️ file '" + file.id + "' has invalid modified datetime"
+          );
+        }
+        if (file.published && !file.modified) file.modified = file.published;
+      }
+    }
   }
 });
