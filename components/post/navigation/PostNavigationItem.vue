@@ -1,5 +1,11 @@
 <template>
-  <div :class="itemCss" class="nav-item">
+  <div
+    :class="{
+      'nav-item-border-top': hasTopBorder,
+      'nav-item-border-bottom': hasBottomBorder
+    }"
+    class="nav-item"
+  >
     <nuxt-link style="padding: 0 var(--el-main-padding)" :to="to">
       <div class="additional-info" v-if="published">
         <p>
@@ -40,21 +46,8 @@ const {
   border?: 'both' | 'none' | 'top' | 'bottom';
 }>();
 
-let itemCss = '';
-switch (border) {
-  case 'none':
-    break;
-  case 'bottom':
-    itemCss = 'nav-item-border-bottom';
-    break;
-  case 'top':
-    itemCss = 'nav-item-border-top';
-    break;
-  // It can be tricky simply fallthrough here, but in current way it's clearer.
-  case 'both':
-    itemCss = 'nav-item-border-top nav-item-border-bottom';
-    break;
-}
+const hasTopBorder = border == 'top' || border == 'both';
+const hasBottomBorder = border == 'bottom' || border == 'both';
 </script>
 
 <style scoped>
