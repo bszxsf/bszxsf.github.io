@@ -52,9 +52,9 @@ let postPaths: NamedPaths = [
   { name: '主页', to: '/' },
   { name: '文章', to: '/posts' }
 ];
-let cntPathTo = '/posts/';
+let cntPathTo = '/posts';
 for (const postIdSeg of postIdArr) {
-  cntPathTo += postIdSeg;
+  cntPathTo += '/' + postIdSeg;
   postPaths.push({ name: postIdSeg, to: cntPathTo });
 }
 
