@@ -15,7 +15,7 @@
             )
           }}
         </p>
-        <p v-if="post!.modified">
+        <p v-if="post!.modified && post!.modified != post!.published">
           最后修改于&nbsp;
           {{
             DateTime.fromISO(post!.modified).toLocaleString(
