@@ -1,5 +1,9 @@
 <template>
-  <el-menu mode="vertical" router style="border-right: none">
+  <el-menu
+    mode="vertical"
+    router
+    style="border-right: none; overflow-x: hidden"
+  >
     <el-menu-item-group title="文章">
       <navigator-post-category :navInfo="navInfo!" />
     </el-menu-item-group>
