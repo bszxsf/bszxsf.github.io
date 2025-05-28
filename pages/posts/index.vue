@@ -2,7 +2,7 @@
   <div>
     <bread-crumb-with-back :paths="postsIndexPaths" />
     <div style="padding: var(--el-main-padding)">
-      <h1 style="padding-bottom: var(--el-main-padding)">文章概览</h1>
+      <h1 style="padding-bottom: var(--el-main-padding)">文章索引</h1>
       <div style="display: flex">
         <!-- TODO: Responsive width of this -->
         <el-select
@@ -90,7 +90,7 @@ const postsIndexPaths: NamedPaths = [
 ];
 
 useHead({
-  title: '文章概览'
+  title: '文章索引'
 });
 </script>
 
