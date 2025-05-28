@@ -5,6 +5,12 @@
     style="border-right: none; overflow-x: hidden"
   >
     <el-menu-item-group title="文章">
+      <el-menu-item index="/posts">
+        <template #title>
+          <el-icon><compass /></el-icon>
+          <span>索引</span>
+        </template>
+      </el-menu-item>
       <navigator-post-category :navInfo="navInfo!" />
     </el-menu-item-group>
     <el-menu-item-group title="其他">
