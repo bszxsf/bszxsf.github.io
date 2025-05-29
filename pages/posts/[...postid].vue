@@ -39,6 +39,17 @@
   </div>
 </template>
 
+<script lang="ts">
+export default {
+  created() {
+    console.log('创建');
+  },
+  beforeUnmount() {
+    console.log('即将销毁');
+  }
+};
+</script>
+
 <script setup lang="ts">
 import { DateTime } from 'luxon';
 
