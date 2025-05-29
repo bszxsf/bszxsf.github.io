@@ -12,6 +12,7 @@ export default defineNuxtConfig({
     server: true, // TODO: Remove this after everything is done
     client: true
   },
+  debug: true, // TODO: Disable debug mode after everything is done
   devtools: { enabled: true },
   plugins: ['~/plugins/element-plus'],
   modules: [
