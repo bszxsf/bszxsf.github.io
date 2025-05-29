@@ -72,7 +72,9 @@ for (const postIdSeg of postIdArr) {
 const postIdStr: string = '/' + postIdArr.join('/');
 const postTitleStr: string = postIdArr.reverse().join(' | ');
 
-const { data: post } = await useAsyncData(() => {
+console.log('调试输出');
+
+const { data: post } = await useAsyncData(postIdStr, () => {
   console.log('获取数据：', postIdStr);
   return queryCollection('posts').path(postIdStr).first();
 });
