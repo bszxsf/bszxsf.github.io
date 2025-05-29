@@ -39,17 +39,6 @@
   </div>
 </template>
 
-<script lang="ts">
-export default {
-  created() {
-    console.log('创建');
-  },
-  beforeUnmount() {
-    console.log('即将销毁');
-  }
-};
-</script>
-
 <script setup lang="ts">
 import { DateTime } from 'luxon';
 
@@ -72,12 +61,9 @@ for (const postIdSeg of postIdArr) {
 const postIdStr: string = '/' + postIdArr.join('/');
 const postTitleStr: string = postIdArr.reverse().join(' | ');
 
-console.log('调试输出');
-
-const { data: post } = await useAsyncData(postIdStr, () => {
-  console.log('获取数据：', postIdStr);
-  return queryCollection('posts').path(postIdStr).first();
-});
+const { data: post } = await useAsyncData(postIdStr, () =>
+  queryCollection('posts').path(postIdStr).first()
+);
 
 useHead({
   title: postTitleStr
