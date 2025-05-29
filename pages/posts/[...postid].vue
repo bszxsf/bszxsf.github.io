@@ -72,9 +72,10 @@ for (const postIdSeg of postIdArr) {
 const postIdStr: string = '/' + postIdArr.join('/');
 const postTitleStr: string = postIdArr.reverse().join(' | ');
 
-const { data: post } = await useAsyncData(() =>
-  queryCollection('posts').path(postIdStr).first()
-);
+const { data: post } = await useAsyncData(() => {
+  console.log('获取数据：', postIdStr);
+  return queryCollection('posts').path(postIdStr).first();
+});
 
 useHead({
   title: postTitleStr
