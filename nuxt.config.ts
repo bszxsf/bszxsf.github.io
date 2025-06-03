@@ -8,11 +8,11 @@ import svgLoader from 'vite-svg-loader';
 
 export default defineNuxtConfig({
   compatibilityDate: '2025-03-14',
-  sourcemap: {
-    server: true, // TODO: Remove this after everything is done
-    client: true
-  },
-  debug: true, // TODO: Disable debug mode after everything is done
+  // sourcemap: {
+  //   server: true, // TODO: Remove this after everything is done
+  //   client: true
+  // },
+  // debug: true, // TODO: Disable debug mode after everything is done
   devtools: { enabled: true },
   plugins: ['~/plugins/element-plus'],
   modules: [
