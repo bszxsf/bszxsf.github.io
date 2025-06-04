@@ -20,8 +20,11 @@
           </el-scrollbar>
         </div>
       </el-aside>
-      <el-main style="display: flex; flex-direction: column">
-        <el-backtop />
+      <el-main
+        id="app-content-frame"
+        style="display: flex; flex-direction: column"
+      >
+        <el-backtop target="#app-content-frame" />
         <div style="flex-grow: 1">
           <slot />
         </div>
