@@ -22,9 +22,12 @@
       />
     </div>
     <div class="nav-bar-non-btn">
-      <a href="https://github.com/bszxsf/bszxsf.github.io" target="_blank">
+      <nuxt-link
+        href="https://github.com/bszxsf/bszxsf.github.io"
+        target="_blank"
+      >
         <Icon name="carbon:logo-github" />
-      </a>
+      </nuxt-link>
     </div>
   </el-menu>
 </template>
