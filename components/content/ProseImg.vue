@@ -5,7 +5,7 @@
     <!-- Some prose style sets a margin for this, a big one. Fortunately it also provided with a class to disable it. -->
     <el-image
       loading="lazy"
-      :src="img"
+      :src="src"
       :fit="fit"
       ref="imageContainer"
       :style="imageContainerStyle"
@@ -36,7 +36,7 @@
 
 <script setup lang="ts">
 const {
-  img,
+  src,
   caption,
   imgWidth,
   imgMinWidth = '50px',
@@ -46,7 +46,7 @@ const {
   imgMaxHeight = '100%',
   fit = 'contain'
 } = defineProps<{
-  img: string;
+  src: string;
   caption?: string;
   imgWidth?: CssLength;
   imgMinWidth?: CssLength;
