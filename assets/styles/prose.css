@@ -1,0 +1,145 @@
+/* Prose text color */
+.prose {
+  color: var(--el-text-color-regular);
+}
+
+/* Components */
+
+/* ProseA */
+/* `rehype-external-links` does all logic jobs. */
+.prose a:not(h1 a, h2 a, h3 a, h4 a, h5 a, h6 a)::before {
+  content: '🔗';
+}
+.prose a:not(h1 a, h2 a, h3 a, h4 a, h5 a, h6 a) {
+  text-decoration: underline dotted;
+  text-underline-offset: 0.25em;
+}
+.prose a:not(h1 a, h2 a, h3 a, h4 a, h5 a, h6 a):hover {
+  color: var(--el-text-color-primary);
+  transition: color 0.125s;
+}
+
+/* ProseBlockquote */
+.prose blockquote {
+  border-inline-start-color: var(--el-border-color-dark);
+  border-inline-start-width: 0.25em;
+  padding-inline-start: 1em;
+  font-style: italic;
+}
+.prose blockquote p:first-of-type::before {
+  content: open-quote;
+}
+.prose blockquote p:last-of-type::after {
+  content: close-quote;
+}
+
+/* ProseCode */
+.prose code:not(pre code) {
+  background-color: var(--el-fill-color-dark) !important;
+  border-radius: var(--el-border-radius-base);
+  font-size: 0.875em;
+  padding: 0.125em 0.375em;
+  margin: 0 0.125em;
+}
+
+/* TODO: ProsePre */
+
+/* ProseH1 */
+.prose h1 {
+  font-size: 2.125em;
+  font-weight: calc(var(--el-font-weight-primary) * 1.6);
+}
+
+/* ProseH2 to ProseH6 */
+/* color */
+.prose :where(h1, h2, h3, h4, h5, h6) {
+  color: var(--el-text-color-primary);
+}
+/* font/margin size */
+.prose h2 {
+  font-size: 1.5em;
+  margin-top: 2em;
+  margin-bottom: 1em;
+}
+.prose h3 {
+  font-size: 1.25em;
+  margin-top: 1.6em;
+  margin-bottom: 0.6em;
+}
+.prose h4 {
+  font-size: 1em;
+  margin-top: 1.5em;
+  margin-bottom: 0.5em;
+}
+.prose h5 {
+  font-size: 1em;
+  margin-top: 1.3em;
+  margin-bottom: 0.3em;
+}
+.prose h6 {
+  font-size: 1em;
+  margin-top: 1.125em;
+  margin-bottom: 0.125em;
+}
+/* weight */
+.prose :where(h2, h3) {
+  font-weight: calc(var(--el-font-weight-primary) * 1.375);
+}
+.prose :where(h4, h5, h6) {
+  font-weight: calc(var(--el-font-weight-primary) * 1.125);
+}
+/* Leading hashtag */
+.prose :where(h2, h3, h4, h5, h6) {
+  position: relative;
+}
+.prose :where(h2, h3, h4, h5, h6)::before {
+  content: '#';
+  opacity: 0;
+  color: var(--el-color-primary);
+  position: absolute;
+  transform: translateX(-50%);
+  transition:
+    opacity 0.3s ease,
+    transform 0.3s ease;
+}
+.prose :where(h2, h3, h4, h5, h6):hover::before {
+  opacity: 1;
+  transform: translateX(-150%);
+}
+
+/* TODO: ProseImg */
+
+/* ProseUl, ProseOl, ProseLi */
+.prose ul {
+  list-style-type: disc;
+}
+.prose ol {
+  list-style-type: decimal;
+}
+.prose :where(ul, ol) {
+  padding-inline-start: 1.625em;
+}
+.prose :where(ul, ol) > li::marker {
+  color: var(--el-text-color-secondary);
+}
+.prose :where(ul, ol) > li {
+  line-height: 1.625em;
+  padding-inline-start: 0.375em;
+}
+
+/* ProseP */
+.prose p {
+  line-height: 1.75em;
+  margin: 1.125em 0;
+  transition: color 0.125s;
+}
+
+/* ProseStrong */
+.prose strong {
+  font-weight: calc(var(--el-font-weight-primary) * 1.375);
+}
+
+/* ProseEm */
+/* We use the default italic style for this, currently. */
+
+/* TODO: ProseTable, ProseTbody, ProseTd, ProseTh, ProseThead, ProseTr */

@@ -24,6 +24,7 @@ export default defineNuxtConfig({
   ],
   css: [
     '~/assets/styles/main.css',
+    '~/assets/styles/prose.css',
     'element-plus/theme-chalk/dark/css-vars.css',
     '~/assets/styles/dark/css-vars.css'
   ],
