@@ -62,6 +62,14 @@ export default defineNuxtConfig({
             'mdc',
             'json'
           ]
+        },
+        rehypePlugins: {
+          'rehype-external-links': {
+            options: {
+              target: '_blank',
+              rel: ['nofollow', 'noopener', 'noreferrer']
+            }
+          }
         }
       }
     }
