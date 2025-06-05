@@ -62,8 +62,8 @@ const {
   maxWidth?: CssLength;
   minHeight?: CssLength;
   maxHeight?: CssLength;
-  containerStyle: string;
-  containerClass: string;
+  containerStyle?: string;
+  containerClass?: string;
 }>();
 
 // Things obtained via useTemplateRef() is available after mount, which is too late for SSR.
