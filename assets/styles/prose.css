@@ -143,4 +143,11 @@
 /* ProseEm */
 /* We use the default italic style for this, currently. */
 
-/* TODO: ProseTable, ProseTbody, ProseTd, ProseTh, ProseThead, ProseTr */
+/* ProseTable, ProseTbody, ProseTd, ProseTh, ProseThead, ProseTr */
+/* This still need refine. */
+.prose :where(table, th, td) {
+  border: 1px solid var(--el-border-color);
+}
+.prose :where(th, td) {
+  padding: 0.375em 1em;
+}
