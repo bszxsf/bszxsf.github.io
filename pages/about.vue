@@ -6,7 +6,7 @@
     <content-renderer
       :value="about!"
       style="padding: var(--el-main-padding); max-width: 100%"
-      class="prose dark:prose-invert"
+      class="prose"
     />
   </div>
 </template>

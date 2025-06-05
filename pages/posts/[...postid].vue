@@ -31,8 +31,8 @@
           max-width: 100%;
           word-wrap: break-word;
         "
-        :prose="true"
-        class="prose dark:prose-invert"
+        prose
+        class="prose"
       />
     </div>
     <error-display404 v-else />
