@@ -1,7 +1,7 @@
 <template>
   <!-- It seems impossible to directly include an image from nuxt content markdown. -->
   <!-- Inline-block prevents it from always filling up its containing element. -->
-  <div style="display: inline-block" class="not-prose">
+  <div class="prose-img-container">
     <!-- Some prose style sets a margin for this, a big one. Fortunately it also provided with a class to disable it. -->
     <el-image
       loading="lazy"
@@ -68,13 +68,16 @@ if (imgHeight != undefined) imageContainerStyle += '; height: ' + imgHeight;
 </script>
 
 <style scoped>
+.img-prose-container {
+  display: inline-block;
+  justify-content: center;
+  align-content: center;
+  align-items: center;
+}
 .img-err {
   width: 100%;
   background: var(--el-fill-color-light);
   color: var(--el-text-color-secondary);
   display: flex;
-  justify-content: center;
-  align-content: center;
-  align-items: center;
 }
 </style>
