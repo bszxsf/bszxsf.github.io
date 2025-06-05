@@ -43,6 +43,15 @@
 }
 
 /* TODO: ProsePre */
+/* This still requires much effort. */
+/* This selector is not very precise, what we actually need is a 'parent element selector', which is not supported by CSS. */
+/* We may need to customize a ProsePre component to do this right. */
+.prose pre {
+  background-color: var(--el-fill-color-dark) !important;
+  border-radius: var(--el-border-radius-base);
+  padding: 0.125em 0.625em;
+  margin-left: 1em;
+}
 
 /* ProseH1 */
 .prose h1 {
