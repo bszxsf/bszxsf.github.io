@@ -107,7 +107,7 @@
   transform: translateX(-150%);
 }
 
-/* TODO: ProseImg */
+/* ProseImg requires special processes */
 
 /* ProseUl, ProseOl, ProseLi */
 .prose ul {
@@ -128,6 +128,7 @@
 }
 
 /* ProseP */
+/* We also need some special logic to workaround an absurd design defect, which causes tons of hydration errors with ProseImg. */
 .prose p {
   line-height: 1.75em;
   margin: 1.125em 0;

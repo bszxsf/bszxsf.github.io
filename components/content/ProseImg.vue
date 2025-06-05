@@ -1,12 +1,10 @@
 <template>
-  <!-- It seems impossible to directly include an image from nuxt content markdown. -->
   <!-- Inline-block prevents it from always filling up its containing element. -->
   <div
     class="prose-img-container"
     :style="containerStyle"
     :class="containerClass"
   >
-    <!-- Some prose style sets a margin for this, a big one. Fortunately it also provided with a class to disable it. -->
     <el-image
       loading="lazy"
       v-bind="$attrs"
@@ -16,7 +14,6 @@
     >
       <template #error>
         <div class="img-err" :style="imageContainerStyle">
-          <!-- height: 100% does not work. Even official examples have the same issue... Sigh. -->
           <el-icon><el-icon-picture /></el-icon>
           <span v-if="$attrs['alt']">{{ $attrs['alt'] }}</span>
         </div>
@@ -66,7 +63,6 @@ const {
   containerClass?: string;
 }>();
 
-// Things obtained via useTemplateRef() is available after mount, which is too late for SSR.
 let imageContainerStyle: string =
   'min-width: ' + minWidth + '; max-width: ' + maxWidth;
 let captionStyle: string = imageContainerStyle;
