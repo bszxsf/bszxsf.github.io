@@ -43,7 +43,6 @@ export default defineNuxtConfig({
           lower: false
         }
       },
-      // Default settings. TS says this is required.
       markdown: {
         toc: {
           depth: 2,
