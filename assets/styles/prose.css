@@ -1,4 +1,4 @@
-.prose {
+.prose:not(.not-prose) {
   /* Prose text color */
   color: var(--el-text-color-regular);
 
@@ -11,35 +11,35 @@
 
 /* ProseA */
 /* `rehype-external-links` does all logic jobs. */
-.prose a:not(h1 a, h2 a, h3 a, h4 a, h5 a, h6 a)::before {
+.prose a:not(h1 a, h2 a, h3 a, h4 a, h5 a, h6 a, .not-prose)::before {
   content: '🔗';
 }
-.prose a:not(h1 a, h2 a, h3 a, h4 a, h5 a, h6 a) {
+.prose a:not(h1 a, h2 a, h3 a, h4 a, h5 a, h6 a, .not-prose) {
   text-decoration: underline dotted;
   text-underline-offset: 0.25em;
 }
-.prose a:not(h1 a, h2 a, h3 a, h4 a, h5 a, h6 a):hover {
+.prose a:not(h1 a, h2 a, h3 a, h4 a, h5 a, h6 a, .not-prose):hover {
   color: var(--el-text-color-primary);
   transition: color 0.125s;
 }
 
 /* ProseBlockquote */
-.prose blockquote {
+.prose blockquote:not(.not-prose) {
   border-inline-start-color: var(--el-border-color-dark);
   border-inline-start-width: 0.25em;
   padding-inline-start: 1em;
   font-style: italic;
   margin: var(--app-prose-v-margin) 0;
 }
-.prose blockquote p:first-of-type::before {
+.prose blockquote:not(.not-prose) p:first-of-type::before {
   content: open-quote;
 }
-.prose blockquote p:last-of-type::after {
+.prose blockquote:not(.not-prose) p:last-of-type::after {
   content: close-quote;
 }
 
 /* ProseCode */
-.prose code:not(pre code) {
+.prose code:not(pre code, .not-prose) {
   background-color: var(--el-fill-color-dark) !important;
   border-radius: var(--el-border-radius-base);
   font-size: 0.875em;
@@ -51,7 +51,7 @@
 /* This still requires much effort. */
 /* This selector is not very precise, what we actually need is a 'parent element selector', which is not supported by CSS. */
 /* We may need to customize a ProsePre component to do this right. */
-.prose pre {
+.prose pre:not(.not-prose) {
   background-color: var(--el-fill-color-dark) !important;
   border-radius: var(--el-border-radius-base);
   padding: 0.125em 0.625em;
@@ -61,54 +61,54 @@
 }
 
 /* ProseH1 */
-.prose h1 {
+.prose h1:not(.not-prose) {
   font-size: 2.125em;
   font-weight: calc(var(--el-font-weight-primary) * 1.6);
 }
 
 /* ProseH2 to ProseH6 */
 /* color */
-.prose :where(h1, h2, h3, h4, h5, h6) {
+.prose :where(h1, h2, h3, h4, h5, h6):not(.not-prose) {
   color: var(--el-text-color-primary);
 }
 /* font/margin size */
-.prose h2 {
+.prose h2:not(.not-prose) {
   font-size: 1.5em;
   margin-top: 2em;
   margin-bottom: 1em;
 }
-.prose h3 {
+.prose h3:not(.not-prose) {
   font-size: 1.25em;
   margin-top: 1.6em;
   margin-bottom: 0.6em;
 }
-.prose h4 {
+.prose h4:not(.not-prose) {
   font-size: 1em;
   margin-top: 1.5em;
   margin-bottom: 0.5em;
 }
-.prose h5 {
+.prose h5:not(.not-prose) {
   font-size: 1em;
   margin-top: 1.3em;
   margin-bottom: 0.3em;
 }
-.prose h6 {
+.prose h6:not(.not-prose) {
   font-size: 1em;
   margin-top: 1.125em;
   margin-bottom: 0.125em;
 }
 /* weight */
-.prose :where(h2, h3) {
+.prose :where(h2, h3):not(.not-prose) {
   font-weight: calc(var(--el-font-weight-primary) * 1.375);
 }
-.prose :where(h4, h5, h6) {
+.prose :where(h4, h5, h6):not(.not-prose) {
   font-weight: calc(var(--el-font-weight-primary) * 1.125);
 }
 /* Leading hashtag */
-.prose :where(h2, h3, h4, h5, h6) {
+.prose :where(h2, h3, h4, h5, h6):not(.not-prose) {
   position: relative;
 }
-.prose :where(h2, h3, h4, h5, h6)::before {
+.prose :where(h2, h3, h4, h5, h6):not(.not-prose)::before {
   content: '#';
   opacity: 0;
   color: var(--el-color-primary);
@@ -118,7 +118,7 @@
     opacity 0.3s ease,
     transform 0.3s ease;
 }
-.prose :where(h2, h3, h4, h5, h6):hover::before {
+.prose :where(h2, h3, h4, h5, h6):not(.not-prose):hover::before {
   opacity: 1;
   transform: translateX(-150%);
 }
@@ -126,34 +126,34 @@
 /* ProseImg requires special processes */
 
 /* ProseUl, ProseOl, ProseLi */
-.prose ul {
+.prose ul:not(.not-prose) {
   list-style-type: disc;
 }
-.prose ol {
+.prose ol:not(.not-prose) {
   list-style-type: decimal;
 }
-.prose :where(ul, ol) {
+.prose :where(ul, ol):not(.not-prose) {
   padding-inline-start: 1.625em;
   margin: var(--app-prose-v-margin) 0;
 }
-.prose :where(ul, ol) > li::marker {
+.prose :where(ul, ol):not(.not-prose) > li::marker {
   color: var(--el-text-color-secondary);
 }
-.prose :where(ul, ol) > li {
+.prose :where(ul, ol):not(.not-prose) > li {
   line-height: 1.625em;
   padding-inline-start: 0.375em;
 }
 
 /* ProseP */
 /* We also need some special logic to workaround an absurd design defect, which causes tons of hydration errors with ProseImg. */
-.prose p {
+.prose p:not(.not-prose) {
   line-height: 1.75em;
   margin: 1.125em 0;
   transition: color 0.125s;
 }
 
 /* ProseStrong */
-.prose strong {
+.prose strong:not(.not-prose) {
   font-weight: calc(var(--el-font-weight-primary) * 1.375);
 }
 
@@ -162,12 +162,12 @@
 
 /* ProseTable, ProseTbody, ProseTd, ProseTh, ProseThead, ProseTr */
 /* This still need refine. */
-.prose table {
+.prose table:not(.not-prose) {
   margin: var(--app-prose-v-margin) 0;
 }
-.prose :where(table, th, td) {
+.prose :where(table, th, td):not(.not-prose) {
   border: 1px solid var(--el-border-color);
 }
-.prose :where(th, td) {
+.prose :where(th, td):not(.not-prose) {
   padding: 0.375em 1em;
 }
