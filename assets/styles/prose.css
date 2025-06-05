@@ -1,6 +1,10 @@
-/* Prose text color */
 .prose {
+  /* Prose text color */
   color: var(--el-text-color-regular);
+
+  /* Prose vertical margin */
+  /* Does not apply to all prose components */
+  --app-prose-v-margin: 1.25em;
 }
 
 /* Components */
@@ -25,6 +29,7 @@
   border-inline-start-width: 0.25em;
   padding-inline-start: 1em;
   font-style: italic;
+  margin: var(--app-prose-v-margin) 0;
 }
 .prose blockquote p:first-of-type::before {
   content: open-quote;
@@ -51,6 +56,8 @@
   border-radius: var(--el-border-radius-base);
   padding: 0.125em 0.625em;
   margin-left: 1em;
+  margin-top: var(--app-prose-v-margin);
+  margin-bottom: var(--app-prose-v-margin);
 }
 
 /* ProseH1 */
@@ -127,6 +134,7 @@
 }
 .prose :where(ul, ol) {
   padding-inline-start: 1.625em;
+  margin: var(--app-prose-v-margin) 0;
 }
 .prose :where(ul, ol) > li::marker {
   color: var(--el-text-color-secondary);
@@ -154,6 +162,9 @@
 
 /* ProseTable, ProseTbody, ProseTd, ProseTh, ProseThead, ProseTr */
 /* This still need refine. */
+.prose table {
+  margin: var(--app-prose-v-margin) 0;
+}
 .prose :where(table, th, td) {
   border: 1px solid var(--el-border-color);
 }
