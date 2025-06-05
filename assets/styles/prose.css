@@ -11,14 +11,14 @@
 
 /* ProseA */
 /* `rehype-external-links` does all logic jobs. */
-.prose a:not(h1 a, h2 a, h3 a, h4 a, h5 a, h6 a, .not-prose)::before {
+.prose a:not(h2 > a, h3 > a, h4 > a, h5 > a, h6 > a, .not-prose)::before {
   content: '🔗';
 }
-.prose a:not(h1 a, h2 a, h3 a, h4 a, h5 a, h6 a, .not-prose) {
+.prose a:not(h2 > a, h3 > a, h4 > a, h5 > a, h6 > a, .not-prose) {
   text-decoration: underline dotted;
   text-underline-offset: 0.25em;
 }
-.prose a:not(h1 a, h2 a, h3 a, h4 a, h5 a, h6 a, .not-prose):hover {
+.prose a:not(h2 > a, h3 > a, h4 > a, h5 > a, h6 > a, .not-prose):hover {
   color: var(--el-text-color-primary);
   transition: color 0.125s;
 }
