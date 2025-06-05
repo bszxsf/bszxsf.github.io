@@ -33,6 +33,15 @@ export default defineNuxtConfig({
     rootId: 'app'
   },
   content: {
+    renderer: {
+      anchorLinks: {
+        h2: true,
+        h3: true,
+        h4: true,
+        h5: true,
+        h6: true
+      }
+    },
     build: {
       transformers: ['~/transformers/index-page-title'],
       pathMeta: {
