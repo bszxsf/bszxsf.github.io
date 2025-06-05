@@ -1,22 +1,24 @@
 <template>
   <!-- It seems impossible to directly include an image from nuxt content markdown. -->
   <!-- Inline-block prevents it from always filling up its containing element. -->
-  <div class="prose-img-container">
+  <div
+    class="prose-img-container"
+    :style="containerStyle"
+    :class="containerClass"
+  >
     <!-- Some prose style sets a margin for this, a big one. Fortunately it also provided with a class to disable it. -->
     <el-image
       loading="lazy"
-      :src
-      :fit
+      v-bind="$attrs"
       ref="imageContainer"
       :style="imageContainerStyle"
       style="display: block; margin: 0 auto"
-      :title
     >
       <template #error>
         <div class="img-err" :style="imageContainerStyle">
           <!-- height: 100% does not work. Even official examples have the same issue... Sigh. -->
           <el-icon><el-icon-picture /></el-icon>
-          <span v-if="alt">{{ alt }}</span>
+          <span v-if="$attrs['alt']">{{ $attrs['alt'] }}</span>
         </div>
       </template>
     </el-image>
@@ -37,10 +39,12 @@
 </template>
 
 <script setup lang="ts">
+defineOptions({
+  inheritAttrs: false
+});
+// Pass src, alt, title, fit etc. by fallthrough
+
 const {
-  src,
-  alt,
-  title,
   caption,
   width,
   height,
@@ -48,11 +52,9 @@ const {
   maxWidth = '100%',
   minHeight = '50px',
   maxHeight = '100%',
-  fit = 'contain'
+  containerStyle,
+  containerClass
 } = defineProps<{
-  src: string;
-  alt?: string;
-  title?: string;
   caption?: string;
   width?: CssLength;
   height?: CssLength;
@@ -60,7 +62,8 @@ const {
   maxWidth?: CssLength;
   minHeight?: CssLength;
   maxHeight?: CssLength;
-  fit?: 'fill' | 'contain' | 'cover' | 'none' | 'scale-down';
+  containerStyle: string;
+  containerClass: string;
 }>();
 
 // Things obtained via useTemplateRef() is available after mount, which is too late for SSR.
