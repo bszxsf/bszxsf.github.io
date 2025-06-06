@@ -61,6 +61,8 @@
   overflow-x: scroll;
 }
 
+/* ProseHr: simply use ElDivider */
+
 /* ProseH1 */
 .prose h1:not(.not-prose) {
   font-size: 2.125em;
