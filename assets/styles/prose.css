@@ -144,6 +144,10 @@
   line-height: 1.625em;
   padding-inline-start: 0.375em;
 }
+/* Avoid too much space of nested list */
+.prose :where(ul, ol):not(.not-prose) :where(ul, ol) {
+  margin: 0.25em 0;
+}
 
 /* ProseP */
 /* We also need some special logic to workaround an absurd design defect, which causes tons of hydration errors with ProseImg. */
