@@ -9,7 +9,6 @@
           v-model="selectedOrder"
           value-key="name"
           style="width: 120px"
-          @change="queryNavItems()"
         >
           <el-option
             v-for="orderOptionPair in orderOptionsPairs"
@@ -20,23 +19,26 @@
         </el-select>
       </div>
       <div class="nav-list-body">
-        <div v-for="post of allposts" :key="post.title">
+        <div v-for="postNav of flattenedNav" :key="postNav.title">
           <post-navigation-item
-            :title="post.title"
-            :description="post.description"
-            :published="post.published"
-            :modified="post.modified"
-            :to="'/posts' + post.path"
+            :title="postNav.title"
+            :description="<string>postNav.description"
+            :published="<string>postNav.published"
+            :modified="<string>postNav.modified"
+            :to="'/posts' + postNav.path"
             border="bottom"
           />
         </div>
       </div>
+      <!-- <div v-for="item of flattenedNav" :key="item.title">
+        {{ item.title }}
+      </div> -->
     </div>
   </div>
 </template>
 
 <script setup lang="ts">
-import type { PageCollections } from '@nuxt/content';
+import type { PageCollections, ContentNavigationItem } from '@nuxt/content';
 
 type OrderOptionsPair = {
   name: string;
@@ -69,20 +71,47 @@ const orderOptionsPairs: OrderOptionsPair[] = [
 // Note: Actually this thing is never changed. We only need a one-way bind.
 const selectedOrder: Ref<OrderOptionsPair> = ref(orderOptionsPairs[0]);
 
-const { data: allposts, refresh } = await useAsyncData(
-  () =>
-    queryCollection('posts')
-      .where('published', 'IS NOT NULL')
-      .order(selectedOrder.value.key, selectedOrder.value.direction)
-      .all(),
-  {
-    dedupe: 'cancel'
-  }
+const { data: postsNav } = await useAsyncData(() =>
+  queryCollectionNavigation('posts', [
+    'id',
+    'published',
+    'modified',
+    'description'
+  ]).where('published', 'IS NOT NULL')
 );
 
-const queryNavItems = () => {
-  refresh();
+const flattenNavTree = (nodes: ContentNavigationItem[] | null) => {
+  if (!nodes || (<ContentNavigationItem[]>nodes).length == 0) {
+    return null;
+  }
+  let result: ContentNavigationItem[] = [];
+  let traversalStack: ContentNavigationItem[] = [...nodes];
+  traversalStack.reverse();
+  let cntNode: ContentNavigationItem | undefined = undefined;
+
+  while ((cntNode = traversalStack.pop())) {
+    if (cntNode.children)
+      traversalStack.push(...[...cntNode.children].reverse());
+    else result.push(cntNode);
+  }
+  return result;
 };
+
+const flattenedNav = flattenNavTree(postsNav.value!);
+
+watch(selectedOrder, () =>
+  flattenedNav?.sort((a, b) => {
+    if (selectedOrder.value.direction == 'ASC') {
+      return <any>a[selectedOrder.value.key] > <any>b[selectedOrder.value.key]
+        ? 1
+        : -1;
+    } else {
+      return <any>a[selectedOrder.value.key] < <any>b[selectedOrder.value.key]
+        ? 1
+        : -1;
+    }
+  })
+);
 
 const postsIndexPaths: NamedPaths = [
   { name: '主页', to: '/' },
