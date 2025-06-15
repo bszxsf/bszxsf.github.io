@@ -30,9 +30,6 @@
           />
         </div>
       </div>
-      <!-- <div v-for="item of flattenedNav" :key="item.title">
-        {{ item.title }}
-      </div> -->
     </div>
   </div>
 </template>
@@ -68,7 +65,6 @@ const orderOptionsPairs: OrderOptionsPair[] = [
   }
 ];
 
-// Note: Actually this thing is never changed. We only need a one-way bind.
 const selectedOrder: Ref<OrderOptionsPair> = ref(orderOptionsPairs[0]);
 
 const { data: postsNav } = await useAsyncData(() =>
