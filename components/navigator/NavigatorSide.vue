@@ -31,15 +31,10 @@
 </template>
 
 <script setup lang="ts">
-const { data: navInfo } = await useAsyncData(
-  'content-posts-nav-side',
-  () =>
-    queryCollectionNavigation('posts', ['published', 'modified']).where(
-      'published',
-      'IS NOT NULL'
-    ),
-  {
-    dedupe: 'defer' // This result shall never change, so using 'defer' is enough.
-  }
+const { data: navInfo } = await useAsyncData('content-posts-nav-side', () =>
+  queryCollectionNavigation('posts', ['published', 'modified']).where(
+    'published',
+    'IS NOT NULL'
+  )
 );
 </script>
