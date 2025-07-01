@@ -12,6 +12,20 @@
     <!-- Right side: misc stuff -->
     <!-- TODO: search bar, about (author, powered by etc.), github, dark mode switch -->
     <el-menu-item index="/about"> 关于 </el-menu-item>
+    <div class="nav-bar-btn" @click="searchDialogVisible = true">
+      <el-icon><search /></el-icon>
+      <!-- There might be lots of results each search, destroy after close might release the resources used. -->
+      <el-dialog destroy-on-close v-model="searchDialogVisible">
+        <template #header>
+          <el-input v-model="queryStringContent" placeholder="输入搜索内容">
+            <template #prepend>
+              <el-icon><search /></el-icon>
+            </template>
+          </el-input>
+        </template>
+        {{ sections }}
+      </el-dialog>
+    </div>
     <div class="nav-bar-non-btn">
       <el-switch
         v-model="isDark"
@@ -47,6 +61,16 @@ let isDark = ref(false);
 onMounted(() => {
   isDark = useDark({ disableTransition: false });
 });
+
+const queryStringContent = ref('');
+const searchDialogVisible = ref(false);
+
+const { data: sections } = await useAsyncData('search-sections', () => {
+  return queryCollectionSearchSections('posts').where(
+    'published',
+    'IS NOT NULL'
+  );
+});
 </script>
 
 <style scoped>
@@ -60,5 +84,20 @@ onMounted(() => {
   display: flex;
   align-items: center;
   padding: 0 var(--el-menu-base-level-padding);
+}
+
+.nav-bar-btn {
+  height: 100%;
+  justify-content: center;
+  align-content: center;
+  display: flex;
+  align-items: center;
+  padding: 0 var(--el-menu-base-level-padding);
+}
+.nav-bar-btn:hover {
+  background-color: var(--el-menu-hover-bg-color);
+  color: var(--el-menu-hover-text-color);
+  outline: none;
+  cursor: pointer;
 }
 </style>
