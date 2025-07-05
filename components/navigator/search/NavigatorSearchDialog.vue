@@ -17,7 +17,7 @@
         </template>
       </el-input>
     </template>
-    <el-scrollbar max-height="400px">
+    <el-scrollbar v-loading="loading" max-height="400px">
       <navigator-search-item
         v-if="searchResults.length > 0"
         v-for="res of searchResults"
@@ -53,6 +53,7 @@ type FuseResultRef = Ref<FuseResult<SectionItem>>;
 
 const contentFuse: Ref<FuseInstance | null> = ref(null);
 const titleFuse: Ref<FuseInstance | null> = ref(null);
+const loading = ref(true);
 
 const loadData = async () => {
   const { data: rawSections } = await useAsyncData('search-sections', () => {
@@ -86,6 +87,8 @@ const loadData = async () => {
     shouldSort: true,
     findAllMatches: false
   });
+
+  loading.value = false;
 };
 
 const searchResults = computed(() => {
