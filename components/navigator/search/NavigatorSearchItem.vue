@@ -1,15 +1,19 @@
 <template>
   <div class="nav-search-item" @click="gotoPage()">
-    <span class="text-lg" :title>{{ title }}</span>
+    <p class="text-xl" :title>{{ title }}</p>
     <el-breadcrumb separator="/" v-if="titles && titles.length > 0">
-      <el-breadcrumb-item v-for="component of titles" :key="component">
+      <el-breadcrumb-item
+        v-for="component of titles"
+        :key="component"
+        class="nav-search-item-bc"
+      >
         {{ component }}
       </el-breadcrumb-item>
       <el-breadcrumb-item>
         {{ title }}
       </el-breadcrumb-item>
     </el-breadcrumb>
-    <div v-if="content">{{ content }}</div>
+    <p v-if="content">{{ content }}</p>
   </div>
 </template>
 
@@ -38,5 +42,13 @@ const gotoPage = () => {
   cursor: pointer;
   /* background-color: var(--el-menu-item-hover-fill); */
   background-color: var(--el-color-primary-light-3);
+}
+
+.nav-search-item > p:first-child {
+  margin-bottom: 0.625rem;
+  color: var(--el-color-primary-dark-2);
+}
+.nav-search-item-bc {
+  margin-bottom: 1.375rem;
 }
 </style>
