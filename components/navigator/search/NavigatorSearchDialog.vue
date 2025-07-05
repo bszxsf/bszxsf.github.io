@@ -4,6 +4,7 @@
     :show-close="false"
     v-model="isVisible"
     style="cursor: auto"
+    @opened.once="loadData()"
   >
     <template #header>
       <el-input
@@ -35,45 +36,66 @@
 </template>
 
 <script setup lang="ts">
-import Fuse from 'fuse.js';
+import Fuse, { type FuseResult } from 'fuse.js';
 
 const isVisible = defineModel<boolean>();
 const queryStringContent = ref('');
 
-const { data: rawSections } = await useAsyncData('search-sections', () => {
-  return queryCollectionSearchSections('posts').where(
-    'published',
-    'IS NOT NULL'
+type SectionItem = {
+  id: string;
+  title: string;
+  titles: string[];
+  level: number;
+  content: string;
+};
+type FuseInstance = Fuse<SectionItem>;
+type FuseResultRef = Ref<FuseResult<SectionItem>>;
+
+const contentFuse: Ref<FuseInstance | null> = ref(null);
+const titleFuse: Ref<FuseInstance | null> = ref(null);
+
+const loadData = async () => {
+  const { data: rawSections } = await useAsyncData('search-sections', () => {
+    return queryCollectionSearchSections('posts').where(
+      'published',
+      'IS NOT NULL'
+    );
+  });
+
+  // TODO: These need optimization. I'm not familiar with TS...
+  const contentSections = rawSections.value!.filter((obj) =>
+    obj.id.includes('#')
   );
-});
+  const titleSections = rawSections.value!.filter(
+    (obj) => !obj.id.includes('#')
+  );
 
-// TODO: These need optimization. I'm not familiar with TS...
-const contentSections = rawSections.value!.filter((obj) =>
-  obj.id.includes('#')
-);
-const titleSections = rawSections.value!.filter((obj) => !obj.id.includes('#'));
+  contentFuse.value = new Fuse(contentSections, {
+    keys: ['content'],
+    isCaseSensitive: false,
+    ignoreDiacritics: true,
+    includeMatches: false,
+    shouldSort: true,
+    findAllMatches: false
+  });
+  titleFuse.value = new Fuse(titleSections, {
+    keys: ['title'],
+    isCaseSensitive: false,
+    ignoreDiacritics: true,
+    includeMatches: false,
+    shouldSort: true,
+    findAllMatches: false
+  });
+};
 
-const contentFuse = new Fuse(contentSections, {
-  keys: ['content'],
-  isCaseSensitive: false,
-  ignoreDiacritics: true,
-  includeMatches: false,
-  shouldSort: true,
-  findAllMatches: false
+const searchResults = computed(() => {
+  // When the two instances are ready, they should trigger another update, thus changing `queryStringContent` before search instances initialization should be fine.
+  if (!titleFuse.value || !contentFuse.value) return [];
+  return [
+    ...titleFuse.value.search(toValue(queryStringContent)).slice(0),
+    ...contentFuse.value.search(toValue(queryStringContent)).slice(0)
+  ];
 });
-const titleFuse = new Fuse(titleSections, {
-  keys: ['title'],
-  isCaseSensitive: false,
-  ignoreDiacritics: true,
-  includeMatches: false,
-  shouldSort: true,
-  findAllMatches: false
-});
-
-const searchResults = computed(() => [
-  ...titleFuse.search(toValue(queryStringContent)).slice(0),
-  ...contentFuse.search(toValue(queryStringContent)).slice(0)
-]);
 </script>
 
 <style>
