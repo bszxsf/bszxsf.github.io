@@ -13,7 +13,7 @@
         {{ title }}
       </el-breadcrumb-item>
     </el-breadcrumb>
-    <p v-if="content">{{ content }}</p>
+    <p v-if="content" class="nav-search-item-content">{{ content }}</p>
   </div>
 </template>
 
@@ -50,5 +50,13 @@ const gotoPage = () => {
 }
 .nav-search-item-bc {
   margin-bottom: 1.375rem;
+}
+.nav-search-item-content {
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  line-clamp: 3;
 }
 </style>
