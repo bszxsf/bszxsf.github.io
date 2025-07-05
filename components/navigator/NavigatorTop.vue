@@ -50,19 +50,21 @@
           </template>
         </el-input>
       </template>
-      <navigator-search-item
-        v-if="searchResults.length > 0"
-        v-for="res of searchResults"
-        :key="res.item.id"
-        :to="'/posts' + res.item.id"
-        :content="res.item.content"
-        :title="res.item.title"
-        :titles="res.item.titles"
-        @click="searchDialogVisible = false"
-      >
-        {{ res.item.content }}
-      </navigator-search-item>
-      <el-empty v-else />
+      <el-scrollbar max-height="400px">
+        <navigator-search-item
+          v-if="searchResults.length > 0"
+          v-for="res of searchResults"
+          :key="res.item.id"
+          :to="'/posts' + res.item.id"
+          :content="res.item.content"
+          :title="res.item.title"
+          :titles="res.item.titles"
+          @click="searchDialogVisible = false"
+        >
+          {{ res.item.content }}
+        </navigator-search-item>
+        <el-empty v-else />
+      </el-scrollbar>
     </el-dialog>
   </el-menu>
 </template>
@@ -149,5 +151,12 @@ const searchResults = computed(() => [
   color: var(--el-menu-hover-text-color);
   outline: none;
   cursor: pointer;
+}
+</style>
+
+<style>
+/* There seems no standard way to disable scrolling of dialog itself, the only way I found working is this dirty hack. */
+.el-overlay-dialog {
+  overflow-y: hidden;
 }
 </style>
