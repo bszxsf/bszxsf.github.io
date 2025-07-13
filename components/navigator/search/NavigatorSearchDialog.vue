@@ -55,7 +55,7 @@ const titleFuse: Ref<FuseInstance | null> = ref(null);
 const loading = ref(true);
 
 const loadData = async () => {
-  const rawSections = await $fetch('/api/posts/search');
+  const rawSections = await $fetch('/api/posts/search.json');
 
   // TODO: These need optimization. I'm not familiar with TS...
   const contentSections = rawSections.filter((obj) => obj.id.includes('#'));
