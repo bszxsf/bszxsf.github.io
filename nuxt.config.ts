@@ -86,6 +86,11 @@ export default defineNuxtConfig({
   vite: {
     plugins: [tailwindcss(), svgLoader()]
   },
+  nitro: {
+    prerender: {
+      routes: ['/api/posts/search']
+    }
+  },
   hooks: {
     'content:file:afterParse'(ctx) {
       if (ctx.collection.name == 'posts') {

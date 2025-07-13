@@ -49,27 +49,17 @@ type SectionItem = {
   content: string;
 };
 type FuseInstance = Fuse<SectionItem>;
-type FuseResultRef = Ref<FuseResult<SectionItem>>;
 
 const contentFuse: Ref<FuseInstance | null> = ref(null);
 const titleFuse: Ref<FuseInstance | null> = ref(null);
 const loading = ref(true);
 
 const loadData = async () => {
-  const { data: rawSections } = await useAsyncData('search-sections', () => {
-    return queryCollectionSearchSections('posts').where(
-      'published',
-      'IS NOT NULL'
-    );
-  });
+  const rawSections = await $fetch('/api/posts/search');
 
   // TODO: These need optimization. I'm not familiar with TS...
-  const contentSections = rawSections.value!.filter((obj) =>
-    obj.id.includes('#')
-  );
-  const titleSections = rawSections.value!.filter(
-    (obj) => !obj.id.includes('#')
-  );
+  const contentSections = rawSections.filter((obj) => obj.id.includes('#'));
+  const titleSections = rawSections.filter((obj) => !obj.id.includes('#'));
 
   contentFuse.value = new Fuse(contentSections, {
     keys: ['content'],
