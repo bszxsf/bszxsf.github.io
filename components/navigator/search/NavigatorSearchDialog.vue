@@ -1,9 +1,11 @@
 <template>
   <el-dialog
+    ref="searchDialog"
     destroy-on-close
     :show-close="false"
     v-model="isVisible"
     style="cursor: auto"
+    @open.once="showLoading()"
     @opened.once="loadData()"
   >
     <template #header>
@@ -17,7 +19,7 @@
         </template>
       </el-input>
     </template>
-    <el-scrollbar v-loading="loading" max-height="400px">
+    <el-scrollbar max-height="400px">
       <navigator-search-item
         v-if="searchResults.length > 0"
         v-for="res of searchResults"
@@ -36,7 +38,7 @@
 </template>
 
 <script setup lang="ts">
-import Fuse, { type FuseResult } from 'fuse.js';
+import Fuse from 'fuse.js';
 
 const isVisible = defineModel<boolean>();
 const queryStringContent = ref('');
@@ -52,9 +54,21 @@ type FuseInstance = Fuse<SectionItem>;
 
 const contentFuse: Ref<FuseInstance | null> = ref(null);
 const titleFuse: Ref<FuseInstance | null> = ref(null);
-const loading = ref(true);
+const searchDialogInstance = useTemplateRef('searchDialog');
+const loadingScreen: Ref<ReturnType<typeof ElLoading.service> | null> =
+  ref(null);
+
+const showLoading = () => {
+  loadingScreen.value = ElLoading.service({
+    target:
+      searchDialogInstance.value!.$el.nextElementSibling.querySelector(
+        '.el-dialog'
+      )
+  });
+};
 
 const loadData = async () => {
+  // Fetch data
   const rawSections = await $fetch('/api/posts/search.json');
 
   // TODO: These need optimization. I'm not familiar with TS...
@@ -78,7 +92,8 @@ const loadData = async () => {
     findAllMatches: false
   });
 
-  loading.value = false;
+  // Visual effect
+  loadingScreen.value!.close();
 };
 
 const searchResults = computed(() => {
