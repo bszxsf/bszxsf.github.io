@@ -2,7 +2,10 @@
   <!-- TODO: Nuxt does not support layout with named slots currently, this is an ugly workaround. -->
   <el-container id="app-content-and-bar">
     <el-main id="app-content-frame">
-      <el-backtop target="#app-content-frame" />
+      <client-only>
+        <!-- On server side `backtopPosRight` cannot be computed correctly, so we wrap this with `client-only` to avoid hydration problem. -->
+        <el-backtop target="#app-content-frame" :right="backtopPosRight" />
+      </client-only>
       <div style="flex-grow: 1">
         <slot />
       </div>
@@ -17,6 +20,25 @@
     </el-aside>
   </el-container>
 </template>
+
+<script setup lang="ts">
+// Default is 40, defined by element
+let backtopPosRight = 40;
+
+// `useCssVar` does not work on server side, so we change the value only at client side.
+if (import.meta.client) {
+  if (useSlots()['bar']) {
+    const appSidebarWidth: string = useCssVar('--app-sidebar-width').value!;
+    if (!appSidebarWidth.endsWith('px'))
+      console.warn(
+        "[app] '--app-sidebar-width' does not end with 'px', this may cause unexpected results."
+      );
+    backtopPosRight += parseInt(appSidebarWidth);
+  }
+}
+
+console.log(backtopPosRight);
+</script>
 
 <style scoped>
 #app-content-frame {
