@@ -1,15 +1,17 @@
 <template>
+  <p class="text-lg font-bold">目录</p>
   <!-- To keep consistency we always use p as containing element. -->
-  <p v-if="titleId">
+  <p v-if="titleId" class="post-toc-item post-toc-h1">
     <nuxt-link :to="{ path: '/posts' + postItem.path, hash: '#' + titleId }">
       {{ postItem.title }}
     </nuxt-link>
   </p>
-  <p v-else @click="backToTop()">
+  <p v-else @click="backToTop()" class="post-toc-item post-toc-h1">
     {{ postItem.title }}
   </p>
   <div>
     <p
+      class="post-toc-item"
       v-for="tocitem of flattenedLinks"
       :key="tocitem.id"
       :style="{ 'padding-left': tocitem.depth - 1 + 'em' }"
@@ -59,3 +61,19 @@ const backToTop = () => {
   });
 };
 </script>
+
+<style scoped>
+.post-toc-item:not(.post-toc-h1) {
+  margin: 0.125em 0;
+}
+.post-toc-h1 {
+  margin: 0.375em 0;
+}
+.post-toc-item {
+  color: var(--el-menu-text-color);
+  transition: color var(--el-transition-duration);
+}
+.post-toc-item:hover {
+  color: var(--el-menu-hover-text-color);
+}
+</style>
