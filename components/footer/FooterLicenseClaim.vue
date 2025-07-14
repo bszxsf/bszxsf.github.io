@@ -1,10 +1,7 @@
 <template>
   <!-- Generated with CC license chooser with style changes -->
   <!-- Original styles seem buggy in Nuxt -->
-  <div
-    class="text-sm text-gray-400"
-    style="margin-bottom: var(--el-main-padding)"
-  >
+  <div class="text-sm text-gray-400">
     <el-divider />
     <div style="padding: 0 var(--el-main-padding)">
       <p>© 2025 bszxsf</p>
