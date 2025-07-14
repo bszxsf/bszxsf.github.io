@@ -36,8 +36,6 @@ if (import.meta.client) {
     backtopPosRight += parseInt(appSidebarWidth);
   }
 }
-
-console.log(backtopPosRight);
 </script>
 
 <style scoped>
