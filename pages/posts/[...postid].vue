@@ -1,42 +1,47 @@
 <template>
-  <div style="width: 100%">
-    <div v-if="post" style="width: 100%">
-      <bread-crumb-with-back :paths="postPaths" />
-      <div
-        v-if="post!.published"
-        style="padding: var(--el-main-padding)"
-        class="text-sm italic text-gray-800 dark:text-gray-200"
-      >
-        <p>
-          发布于&nbsp;
-          {{
-            DateTime.fromISO(post!.published).toLocaleString(
-              DateTime.DATETIME_FULL
-            )
-          }}
-        </p>
-        <p v-if="post!.modified && post!.modified != post!.published">
-          最后修改于&nbsp;
-          {{
-            DateTime.fromISO(post!.modified).toLocaleString(
-              DateTime.DATETIME_FULL
-            )
-          }}
-        </p>
+  <nuxt-layout name="default">
+    <template v-if="post" #bar>
+      <navigator-post-toc :post-item="post" />
+    </template>
+    <div v-if="post" style="width: 100%; display: flex">
+      <div class="post-content">
+        <bread-crumb-with-back :paths="postPaths" />
+        <div
+          v-if="post!.published"
+          style="padding: var(--el-main-padding)"
+          class="text-sm italic text-gray-800 dark:text-gray-200"
+        >
+          <p>
+            发布于&nbsp;
+            {{
+              DateTime.fromISO(post!.published).toLocaleString(
+                DateTime.DATETIME_FULL
+              )
+            }}
+          </p>
+          <p v-if="post!.modified && post!.modified != post!.published">
+            最后修改于&nbsp;
+            {{
+              DateTime.fromISO(post!.modified).toLocaleString(
+                DateTime.DATETIME_FULL
+              )
+            }}
+          </p>
+        </div>
+        <content-renderer
+          :value="post"
+          style="
+            padding: var(--el-main-padding);
+            max-width: 100%;
+            word-wrap: break-word;
+          "
+          prose
+          class="prose"
+        />
       </div>
-      <content-renderer
-        :value="post"
-        style="
-          padding: var(--el-main-padding);
-          max-width: 100%;
-          word-wrap: break-word;
-        "
-        prose
-        class="prose"
-      />
     </div>
     <error-display404 v-else />
-  </div>
+  </nuxt-layout>
 </template>
 
 <script setup lang="ts">
@@ -67,5 +72,10 @@ const { data: post } = await useAsyncData(postIdStr, () =>
 
 useHead({
   title: postTitleStr
+});
+
+definePageMeta({
+  // TODO: Nuxt does not support layout with named slots currently, this is an ugly workaround.
+  layout: false
 });
 </script>
