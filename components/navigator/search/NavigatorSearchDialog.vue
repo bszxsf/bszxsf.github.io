@@ -1,7 +1,6 @@
 <template>
   <el-dialog
     ref="searchDialog"
-    destroy-on-close
     :show-close="false"
     v-model="isVisible"
     style="cursor: auto"
