@@ -32,6 +32,11 @@ export default defineNuxtConfig({
   app: {
     rootId: 'app'
   },
+  router: {
+    options: {
+      scrollBehaviorType: 'smooth'
+    }
+  },
   content: {
     renderer: {
       anchorLinks: {

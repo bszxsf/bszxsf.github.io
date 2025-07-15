@@ -17,6 +17,7 @@ body,
 }
 html {
   overflow-y: auto;
+  scroll-behavior: smooth;
   /* TODO: `1rem` is somehow unreliable due to different browsers may have different default font size. */
   scroll-padding-top: calc(var(--app-header-height) + 1rem);
 }
