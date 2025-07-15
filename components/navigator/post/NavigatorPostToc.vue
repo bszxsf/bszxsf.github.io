@@ -1,5 +1,5 @@
 <template>
-  <div style="padding: var(--el-menu-base-level-padding)">
+  <div>
     <p class="text-lg font-bold">目录</p>
     <!-- To keep consistency we always use p as containing element. -->
     <p v-if="titleId" class="post-toc-item post-toc-h1">

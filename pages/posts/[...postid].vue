@@ -1,7 +1,9 @@
 <template>
   <nuxt-layout name="default">
     <template v-if="post" #bar>
-      <navigator-post-toc :post-item="post" />
+      <div style="padding: var(--el-menu-base-level-padding)">
+        <navigator-post-toc :post-item="post" />
+      </div>
     </template>
     <div v-if="post" style="width: 100%; display: flex">
       <div class="post-content">
