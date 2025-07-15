@@ -2,7 +2,7 @@
   <nuxt-layout name="default">
     <template v-if="post" #bar>
       <div style="padding: var(--el-menu-base-level-padding)">
-        <navigator-post-toc :post-item="post" />
+        <navigator-post-toc :post-item="post" :flattened-links />
       </div>
     </template>
     <div v-if="post" style="width: 100%; display: flex">
@@ -47,8 +47,10 @@
 </template>
 
 <script setup lang="ts">
+import type { TocLink } from '@nuxt/content';
 import { DateTime } from 'luxon';
 
+// Analyze route
 const route = useRoute();
 
 const postIdArr: string[] = ([] as string[]).concat(route.params.postid);
@@ -68,10 +70,26 @@ for (const postIdSeg of postIdArr) {
 const postIdStr: string = '/' + postIdArr.join('/');
 const postTitleStr: string = postIdArr.reverse().join(' | ');
 
+// Get post content
 const { data: post } = await useAsyncData(postIdStr, () =>
   queryCollection('posts').path(postIdStr).first()
 );
 
+// TOC processing
+let flattenedLinks: TocLink[] = [];
+const flattenLinks = (src: TocLink[], dst: TocLink[]) => {
+  for (const link of src) {
+    dst.push(link);
+    if (link.children) {
+      flattenLinks(link.children, dst);
+    }
+  }
+};
+if (post.value) {
+  flattenLinks(post.value!.body!.toc!.links, flattenedLinks);
+}
+
+// Page meta
 useHead({
   title: postTitleStr
 });

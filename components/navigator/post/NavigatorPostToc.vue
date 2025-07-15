@@ -34,20 +34,10 @@ import type {
   PostsCollectionItem
 } from '@nuxt/content';
 
-const { postItem } = defineProps<{
+const { postItem, flattenedLinks } = defineProps<{
   postItem: PostsCollectionItem;
+  flattenedLinks: TocLink[];
 }>();
-
-const flattenLinks = (src: TocLink[], dst: TocLink[]) => {
-  for (const link of src) {
-    dst.push(link);
-    if (link.children) {
-      flattenLinks(link.children, dst);
-    }
-  }
-};
-let flattenedLinks: TocLink[] = [];
-flattenLinks(postItem.body!.toc!.links, flattenedLinks);
 
 let titleId: string | undefined = undefined;
 
