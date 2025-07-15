@@ -53,7 +53,6 @@ if (import.meta.client) {
 }
 #app-content-bar-wrapper {
   width: var(--app-sidebar-width);
-  position: sticky;
 }
 #app-content-bar {
   border-left: 1px var(--el-border-color) var(--el-border-style);
