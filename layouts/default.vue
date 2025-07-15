@@ -13,9 +13,7 @@
     </el-main>
     <el-aside v-if="$slots['bar']" id="app-content-bar-wrapper">
       <div id="app-content-bar">
-        <el-scrollbar height="100%">
-          <slot name="bar" />
-        </el-scrollbar>
+        <slot name="bar" />
       </div>
     </el-aside>
   </el-container>
@@ -61,5 +59,16 @@ if (import.meta.client) {
   border-left: 1px var(--el-border-color) var(--el-border-style);
   position: fixed;
   height: calc(100vh - var(--el-menu-horizontal-height));
+  overflow-y: scroll;
+}
+
+/* Hide scrollbar */
+/* TODO: Hiding the scrollbar reduces accessibility. If we don't hide it, it overlaps with main scrollbar, which is weird; if we show it elsewhere, it's even weirder. We'll find a solution later. */
+#app-content-bar {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+#app-content-bar::-webkit-scrollbar {
+  display: none;
 }
 </style>

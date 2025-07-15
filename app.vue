@@ -10,14 +10,9 @@
     >
       <el-aside style="width: var(--app-sidebar-width)">
         <div id="nav-sidebar-scroll">
-          <el-scrollbar>
-            <navigator-side
-              style="
-                height: 100%;
-                padding-top: var(--el-menu-base-level-padding);
-              "
-            />
-          </el-scrollbar>
+          <navigator-side
+            style="height: 100%; padding-top: var(--el-menu-base-level-padding)"
+          />
         </div>
       </el-aside>
       <div id="app-main-container">
