@@ -3,7 +3,7 @@
   <!-- Original styles seem buggy in Nuxt -->
   <div class="text-sm text-gray-400">
     <el-divider />
-    <div style="padding: 0 var(--el-main-padding)">
+    <div style="padding: 0 var(--el-main-padding) var(--el-main-padding)">
       <p>© 2025 bszxsf</p>
       <p
         xmlns:cc="http://creativecommons.org/ns#"
