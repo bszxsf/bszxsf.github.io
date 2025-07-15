@@ -6,7 +6,7 @@
         <!-- On server side `backtopPosRight` cannot be computed correctly, so we wrap this with `client-only` to avoid hydration problem. -->
         <el-backtop :right="backtopPosRight" />
       </client-only>
-      <div style="flex-grow: 1">
+      <div style="flex-grow: 1; width: 100%">
         <slot />
       </div>
       <footer-license-claim />
@@ -45,6 +45,7 @@ if (import.meta.client) {
 }
 
 #app-content-frame {
+  width: 100%;
   padding: var(--el-main-padding);
   /* Children flex */
   display: flex;

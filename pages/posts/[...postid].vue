@@ -6,7 +6,7 @@
       </div>
     </template>
     <div v-if="post" style="width: 100%; display: flex">
-      <div class="post-content">
+      <div id="post-content">
         <bread-crumb-with-back :paths="postPaths" />
         <div
           v-if="post!.published"
@@ -81,3 +81,9 @@ definePageMeta({
   layout: false
 });
 </script>
+
+<style scoped>
+#post-content {
+  width: 100%;
+}
+</style>

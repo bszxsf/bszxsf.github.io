@@ -5,6 +5,9 @@
   /* Prose vertical margin */
   /* Does not apply to all prose components */
   --app-prose-v-margin: 1.25em;
+
+  /* Horizontal overflow scroll */
+  overflow-x: scroll;
 }
 
 /* Components */
