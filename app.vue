@@ -40,6 +40,7 @@ useHead({
 #app-nav-l {
   border-right: none;
   overflow-x: hidden;
+  overscroll-behavior: contain;
   height: 100%;
   padding-top: var(--el-menu-base-level-padding);
 }
