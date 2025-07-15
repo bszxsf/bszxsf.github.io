@@ -1,27 +1,29 @@
 <template>
-  <p class="text-lg font-bold">目录</p>
-  <!-- To keep consistency we always use p as containing element. -->
-  <p v-if="titleId" class="post-toc-item post-toc-h1">
-    <nuxt-link :to="{ path: '/posts' + postItem.path, hash: '#' + titleId }">
-      {{ postItem.title }}
-    </nuxt-link>
-  </p>
-  <p v-else @click="backToTop()" class="post-toc-item post-toc-h1">
-    {{ postItem.title }}
-  </p>
-  <div>
-    <p
-      class="post-toc-item"
-      v-for="tocitem of flattenedLinks"
-      :key="tocitem.id"
-      :style="{ 'padding-left': tocitem.depth - 1 + 'em' }"
-    >
-      <nuxt-link
-        :to="{ path: '/posts' + postItem.path, hash: '#' + tocitem.id }"
-      >
-        {{ tocitem.text }}
+  <div style="padding: var(--el-menu-base-level-padding)">
+    <p class="text-lg font-bold">目录</p>
+    <!-- To keep consistency we always use p as containing element. -->
+    <p v-if="titleId" class="post-toc-item post-toc-h1">
+      <nuxt-link :to="{ path: '/posts' + postItem.path, hash: '#' + titleId }">
+        {{ postItem.title }}
       </nuxt-link>
     </p>
+    <p v-else @click="backToTop()" class="post-toc-item post-toc-h1">
+      {{ postItem.title }}
+    </p>
+    <div>
+      <p
+        class="post-toc-item"
+        v-for="tocitem of flattenedLinks"
+        :key="tocitem.id"
+        :style="{ 'padding-left': tocitem.depth - 1 + 'em' }"
+      >
+        <nuxt-link
+          :to="{ path: '/posts' + postItem.path, hash: '#' + tocitem.id }"
+        >
+          {{ tocitem.text }}
+        </nuxt-link>
+      </p>
+    </div>
   </div>
 </template>
 

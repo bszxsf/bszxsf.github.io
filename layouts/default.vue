@@ -11,12 +11,12 @@
       </div>
       <footer-license-claim />
     </el-main>
-    <el-aside v-if="$slots['bar']" id="app-content-bar">
-      <!-- <div > -->
-      <el-scrollbar height="100%" style="padding: var(--el-main-padding)">
-        <slot name="bar" />
-      </el-scrollbar>
-      <!-- </div> -->
+    <el-aside v-if="$slots['bar']" id="app-content-bar-wrapper">
+      <div id="app-content-bar">
+        <el-scrollbar height="100%">
+          <slot name="bar" />
+        </el-scrollbar>
+      </div>
     </el-aside>
   </el-container>
 </template>
@@ -40,20 +40,26 @@ if (import.meta.client) {
 
 <style scoped>
 #app-content-frame {
-  height: 100%;
   padding: var(--el-main-padding);
   /* Children flex */
   display: flex;
   flex-direction: column;
   /* This container itself */
   flex: 1;
+  /* Scrolling */
+  overflow: visible !important;
 }
 #app-content-and-bar {
   height: 100%;
   display: flex;
 }
-#app-content-bar {
+#app-content-bar-wrapper {
   width: var(--app-sidebar-width);
+  position: sticky;
+}
+#app-content-bar {
   border-left: 1px var(--el-border-color) var(--el-border-style);
+  position: fixed;
+  height: calc(100vh - var(--el-menu-horizontal-height));
 }
 </style>

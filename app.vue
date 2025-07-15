@@ -20,11 +20,11 @@
           </el-scrollbar>
         </div>
       </el-aside>
-      <el-main id="app-main-container">
+      <div id="app-main-container">
         <nuxt-layout>
           <nuxt-page />
         </nuxt-layout>
-      </el-main>
+      </div>
     </el-container>
   </el-container>
 </template>
