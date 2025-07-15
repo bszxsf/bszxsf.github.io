@@ -39,7 +39,7 @@ const { postItem } = defineProps<{
 }>();
 
 const flattenLinks = (src: TocLink[], dst: TocLink[]) => {
-  for (var link of src) {
+  for (const link of src) {
     dst.push(link);
     if (link.children) {
       flattenLinks(link.children, dst);
