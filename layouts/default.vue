@@ -4,7 +4,7 @@
     <el-main id="app-content-frame">
       <client-only>
         <!-- On server side `backtopPosRight` cannot be computed correctly, so we wrap this with `client-only` to avoid hydration problem. -->
-        <el-backtop target="#app-content-frame" :right="backtopPosRight" />
+        <el-backtop :right="backtopPosRight" />
       </client-only>
       <div style="flex-grow: 1">
         <slot />
