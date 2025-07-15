@@ -51,7 +51,7 @@ flattenLinks(postItem.body!.toc!.links, flattenedLinks);
 
 let titleId: string | undefined = undefined;
 
-if (postItem.body.value[0][0] === 'h1') {
+if (postItem.body.value[0] && postItem.body.value[0][0] === 'h1') {
   titleId = (postItem.body.value[0] as MinimarkElement)[1].id as string;
 }
 
