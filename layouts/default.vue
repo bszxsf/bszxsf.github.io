@@ -37,20 +37,22 @@ if (import.meta.client) {
 </script>
 
 <style scoped>
+#app-content-and-bar {
+  height: 100%;
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr auto;
+}
+
 #app-content-frame {
   padding: var(--el-main-padding);
   /* Children flex */
   display: flex;
   flex-direction: column;
-  /* This container itself */
-  flex: 1;
   /* Scrolling */
   overflow: visible;
 }
-#app-content-and-bar {
-  height: 100%;
-  display: flex;
-}
+
 #app-content-bar-wrapper {
   width: var(--app-sidebar-width);
 }

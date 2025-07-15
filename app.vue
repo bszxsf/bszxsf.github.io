@@ -46,5 +46,6 @@ useHead({
 }
 #app-main-container {
   padding: 0;
+  width: 100%;
 }
 </style>
