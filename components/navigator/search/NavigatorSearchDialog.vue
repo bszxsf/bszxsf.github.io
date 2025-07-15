@@ -1,5 +1,6 @@
 <template>
   <el-dialog
+    :lock-scroll="false"
     ref="searchDialog"
     :show-close="false"
     v-model="isVisible"
