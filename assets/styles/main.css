@@ -2,6 +2,9 @@
 
 :root {
   --app-sidebar-width: 300px;
+  /* TODO: This hardcoded value is the same as `--el-header-height`. */
+  /* We should use app variables to overwrite el variables someday. */
+  --app-header-height: 60px;
 }
 
 html,
@@ -14,6 +17,8 @@ body,
 }
 html {
   overflow-y: auto;
+  /* TODO: `1rem` is somehow unreliable due to different browsers may have different default font size. */
+  scroll-padding-top: calc(var(--app-header-height) + 1rem);
 }
 .iconify {
   color: var(--el-menu-text-color);
