@@ -45,7 +45,7 @@ if (import.meta.client) {
   /* This container itself */
   flex: 1;
   /* Scrolling */
-  overflow: visible !important;
+  overflow: visible;
 }
 #app-content-and-bar {
   height: 100%;
@@ -59,6 +59,7 @@ if (import.meta.client) {
   position: fixed;
   height: calc(100vh - var(--el-menu-horizontal-height));
   overflow-y: scroll;
+  overscroll-behavior: contain;
 }
 
 /* Hide scrollbar */
