@@ -46,6 +46,7 @@ if (import.meta.client) {
 
 #app-content-frame {
   width: 100%;
+  min-width: 0;
   padding: var(--el-main-padding);
   /* Children flex */
   display: flex;
