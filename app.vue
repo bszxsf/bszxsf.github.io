@@ -5,9 +5,7 @@
         style="width: 100%; z-index: var(--el-index-top); position: fixed"
       />
     </el-header>
-    <el-container
-      style="height: calc(100vh - var(--el-menu-horizontal-height))"
-    >
+    <el-container id="app-non-hdr">
       <el-aside style="width: var(--app-sidebar-width)">
         <div id="app-nav-l-container">
           <navigator-side id="app-nav-l" />
@@ -31,6 +29,12 @@ useHead({
 </script>
 
 <style scoped>
+#app-non-hdr {
+  height: calc(100vh - var(--el-menu-horizontal-height));
+  display: grid;
+  grid-template-columns: auto 1fr;
+  width: 100%;
+}
 #app-nav-l-container {
   position: fixed;
   width: var(--app-sidebar-width);
@@ -47,5 +51,6 @@ useHead({
 #app-main-container {
   padding: 0;
   width: 100%;
+  min-width: 0;
 }
 </style>
