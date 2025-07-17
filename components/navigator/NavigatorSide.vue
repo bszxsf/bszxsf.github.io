@@ -1,5 +1,5 @@
 <template>
-  <el-menu mode="vertical" router>
+  <el-menu mode="vertical" router :default-active="decodeURI(route.path)">
     <el-menu-item-group title="文章">
       <el-menu-item index="/posts">
         <template #title>
@@ -33,4 +33,6 @@ const { data: navInfo } = await useAsyncData('content-posts-nav-side', () =>
     'IS NOT NULL'
   )
 );
+
+const route = useRoute();
 </script>
