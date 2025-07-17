@@ -60,7 +60,7 @@
   margin-left: 1em;
   margin-top: var(--app-prose-v-margin);
   margin-bottom: var(--app-prose-v-margin);
-  overflow-x: scroll;
+  overflow-x: auto;
 }
 
 /* ProseHr: simply use ElDivider */
