@@ -14,7 +14,6 @@ export default defineNuxtConfig({
   // },
   // debug: true, // TODO: Disable debug mode after everything is done
   devtools: { enabled: true },
-  plugins: ['~/plugins/element-plus'],
   modules: [
     '@element-plus/nuxt',
     '@vueuse/nuxt',
