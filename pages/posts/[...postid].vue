@@ -2,7 +2,11 @@
   <nuxt-layout name="default">
     <template v-if="post" #bar>
       <div style="padding: var(--el-menu-base-level-padding)">
-        <navigator-post-toc :post-item="post" :flattened-links />
+        <navigator-post-toc
+          :post-item="post"
+          :flattened-links
+          :active-anchor-index
+        />
       </div>
     </template>
     <div v-if="post" style="width: 100%; display: flex">
@@ -228,6 +232,9 @@ onBeforeUnmount(() => {
     observer.value.disconnect();
   }
 });
+const activeAnchorIndex = computed(() =>
+  activeAnchor.value ? anchors2idx.get(activeAnchor.value)! : -1
+);
 
 // Test: print id
 watch(activeAnchor, (newElem, oldElem) => {

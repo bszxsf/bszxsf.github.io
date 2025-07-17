@@ -13,9 +13,10 @@
     <div>
       <p
         class="post-toc-item"
-        v-for="tocitem of flattenedLinks"
+        v-for="(tocitem, index) of flattenedLinks"
         :key="tocitem.id"
         :style="{ 'padding-left': tocitem.depth - 1 + 'em' }"
+        :class="{ anchor__active: index == activeAnchorIndex }"
       >
         <nuxt-link
           :to="{ path: '/posts' + postItem.path, hash: '#' + tocitem.id }"
@@ -34,9 +35,10 @@ import type {
   PostsCollectionItem
 } from '@nuxt/content';
 
-const { postItem, flattenedLinks } = defineProps<{
+const { postItem, flattenedLinks, activeAnchorIndex } = defineProps<{
   postItem: PostsCollectionItem;
   flattenedLinks: TocLink[];
+  activeAnchorIndex: number; // -1 indicates none is active
 }>();
 
 let titleId: string | undefined = undefined;
@@ -67,5 +69,10 @@ const backToTop = () => {
 }
 .post-toc-item:hover {
   color: var(--el-menu-hover-text-color);
+}
+.post-toc-item.anchor__active,
+.post-toc-item.anchor__active:hover {
+  /* This style should overwrite .post-toc-item:hover color attr */
+  color: var(--el-menu-active-color);
 }
 </style>
