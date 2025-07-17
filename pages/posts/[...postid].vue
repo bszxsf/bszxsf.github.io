@@ -40,6 +40,7 @@
             padding: var(--el-main-padding);
             max-width: 100%;
             word-wrap: break-word;
+            overflow-x: visible;
           "
           prose
           class="prose"
