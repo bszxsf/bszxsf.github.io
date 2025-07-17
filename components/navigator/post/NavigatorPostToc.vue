@@ -1,17 +1,17 @@
 <template>
   <div>
-    <p class="text-lg font-bold">目录</p>
+    <div class="text-lg font-bold">目录</div>
     <!-- To keep consistency we always use p as containing element. -->
-    <p v-if="titleId" class="post-toc-item post-toc-h1">
+    <div v-if="titleId" class="post-toc-item post-toc-h1">
       <nuxt-link :to="{ path: '/posts' + postItem.path, hash: '#' + titleId }">
         {{ postItem.title }}
       </nuxt-link>
-    </p>
-    <p v-else @click="backToTop()" class="post-toc-item post-toc-h1">
+    </div>
+    <div v-else @click="backToTop()" class="post-toc-item post-toc-h1">
       {{ postItem.title }}
-    </p>
+    </div>
     <div>
-      <p
+      <div
         class="post-toc-item"
         v-for="(tocitem, index) of flattenedLinks"
         :key="tocitem.id"
@@ -23,7 +23,7 @@
         >
           {{ tocitem.text }}
         </nuxt-link>
-      </p>
+      </div>
     </div>
   </div>
 </template>
