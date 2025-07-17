@@ -1,4 +1,7 @@
 <template>
+  <client-only>
+    <nuxt-loading-indicator :color="elPrimaryColor" />
+  </client-only>
   <el-container style="height: 100%">
     <el-header style="margin: 0; padding: 0">
       <navigator-top
@@ -26,6 +29,11 @@ useHead({
     return titleChunk ? `${titleChunk} | Blog施工中` : 'Blog施工中';
   }
 });
+
+// Well, the prop requires it to be string | boolean | undefined... A bit weird but works.
+const elPrimaryColor = ref<string | undefined>(undefined);
+if (import.meta.client)
+  elPrimaryColor.value = useCssVar('--el-color-primary').value!;
 </script>
 
 <style scoped>
