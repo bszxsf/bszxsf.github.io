@@ -237,13 +237,6 @@ const activeAnchorIndex = computed(() =>
   activeAnchor.value ? anchors2idx.get(activeAnchor.value)! : -1
 );
 
-// Test: print id
-watch(activeAnchor, (newElem, oldElem) => {
-  console.log(
-    `${oldElem ? oldElem.id : 'null'} => ${newElem ? newElem.id : 'null'}`
-  );
-});
-
 // Page meta
 useHead({
   title: postTitleStr
