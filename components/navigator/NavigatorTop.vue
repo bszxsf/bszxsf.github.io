@@ -83,7 +83,10 @@ const route = useRoute();
   display: flex;
   align-items: center;
   padding: 0 var(--el-menu-base-level-padding);
-  transition: color var(--el-transition-duration);
+  transition:
+    color var(--el-transition-duration),
+    background-color var(--el-transition-duration),
+    border-color var(--el-transition-duration);
 }
 .nav-bar-btn:hover {
   background-color: var(--el-menu-hover-bg-color);
