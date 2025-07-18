@@ -7,6 +7,11 @@
           :flattened-links
           :active-anchor-index
         />
+        <!-- If `post` is not null, `surroundings` should not be null. -->
+        <navigator-post-surroundings
+          :prev="surroundings![0]"
+          :next="surroundings![1]"
+        />
       </div>
     </template>
     <div v-if="post" style="width: 100%; display: flex">
@@ -235,6 +240,14 @@ onBeforeUnmount(() => {
 });
 const activeAnchorIndex = computed(() =>
   activeAnchor.value ? anchors2idx.get(activeAnchor.value)! : -1
+);
+
+// Surroundings
+const { data: surroundings } = await useAsyncData(`${postIdStr}-sur`, () =>
+  queryCollectionItemSurroundings('posts', postIdStr).where(
+    'published',
+    'IS NOT NULL'
+  )
 );
 
 // Page meta

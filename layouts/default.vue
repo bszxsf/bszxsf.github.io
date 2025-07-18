@@ -64,6 +64,7 @@ if (import.meta.client) {
   height: calc(100vh - var(--el-menu-horizontal-height));
   overflow-y: scroll;
   overscroll-behavior: contain;
+  width: var(--app-sidebar-width);
 }
 
 /* Hide scrollbar */
