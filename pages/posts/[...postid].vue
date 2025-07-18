@@ -110,7 +110,7 @@ onMounted(() => {
   allAnchors = Array.from(anchors2idx.keys());
 
   // Setup intersection observer if post exists
-  if (post) {
+  if (post.value) {
     const observerCallback: IntersectionObserverCallback = (entries) => {
       // Important things to remember:
       // 1. With `rootMargin: '0px 0px -50% 0px'`, only the upper half of viewport is observed.
