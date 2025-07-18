@@ -1,8 +1,16 @@
 <template>
   <nuxt-layout name="default">
     <template v-if="post" #bar>
-      <div style="padding: var(--el-menu-base-level-padding)">
+      <div
+        style="
+          padding: var(--el-menu-base-level-padding);
+          display: flex;
+          flex-direction: column;
+          min-height: 100%;
+        "
+      >
         <navigator-post-toc
+          style="flex-grow: 1"
           :post-item="post"
           :flattened-links
           :active-anchor-index
