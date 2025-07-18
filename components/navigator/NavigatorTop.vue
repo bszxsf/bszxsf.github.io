@@ -1,6 +1,11 @@
 <template>
   <!-- TODO: responsive width -->
-  <el-menu mode="horizontal" :ellipsis="false" router>
+  <el-menu
+    mode="horizontal"
+    :ellipsis="false"
+    router
+    :default-active="decodeURI(route.path)"
+  >
     <!-- Left side: home page button -->
     <!-- People usually place a logo here, though I don't have one so we put whatever stuff. -->
     <!-- This icon (or whatever) shall navigate to the home page. So using the home icon ought to be a nice choice... -->
@@ -54,6 +59,8 @@ onMounted(() => {
 });
 
 const searchDialogVisible = ref(false);
+
+const route = useRoute();
 </script>
 
 <style scoped>
