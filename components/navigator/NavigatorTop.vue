@@ -19,7 +19,6 @@
     <el-menu-item index="/about"> 关于 </el-menu-item>
     <div class="nav-bar-btn" @click="searchDialogVisible = true">
       <el-icon><search /></el-icon>
-      <!-- There might be lots of results each search, destroy after close might release the resources used. -->
     </div>
     <div class="nav-bar-non-btn">
       <el-switch
