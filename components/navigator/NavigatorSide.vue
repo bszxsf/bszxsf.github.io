@@ -1,5 +1,9 @@
 <template>
-  <el-menu mode="vertical" router :default-active="decodeURI(route.path)">
+  <el-menu
+    mode="vertical"
+    router
+    :default-active="decodeURI(route.path).replace(/\/$/, '')"
+  >
     <el-menu-item-group title="文章">
       <el-menu-item index="/posts">
         <template #title>

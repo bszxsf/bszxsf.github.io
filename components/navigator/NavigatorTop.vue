@@ -4,7 +4,7 @@
     mode="horizontal"
     :ellipsis="false"
     router
-    :default-active="decodeURI(route.path)"
+    :default-active="decodeURI(route.path).replace(/\/$/, '')"
   >
     <!-- Left side: home page button -->
     <!-- People usually place a logo here, though I don't have one so we put whatever stuff. -->
