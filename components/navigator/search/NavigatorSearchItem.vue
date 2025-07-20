@@ -40,7 +40,6 @@ const gotoPage = () => {
 }
 .nav-search-item:hover {
   cursor: pointer;
-  /* background-color: var(--el-menu-item-hover-fill); */
   background-color: var(--el-color-primary-light-3);
 }
 
