@@ -27,7 +27,7 @@
         <bread-crumb-with-back :paths="postPaths" />
         <div
           v-if="post!.published"
-          style="padding: var(--el-main-padding)"
+          id="post-datetime"
           class="text-sm italic text-gray-800 dark:text-gray-200"
         >
           <p>
@@ -46,6 +46,12 @@
               )
             }}
           </p>
+        </div>
+        <div id="post-tags-container" v-if="post.tags">
+          <span class="text-sm">标签：</span>
+          <el-tag v-for="tag of post.tags" :key="tag" class="post-tag">
+            {{ tag }}
+          </el-tag>
         </div>
         <content-renderer
           :value="post"
@@ -272,5 +278,17 @@ definePageMeta({
 <style scoped>
 #post-content {
   width: 100%;
+}
+#post-tags-container {
+  padding-left: var(--el-main-padding);
+}
+#post-datetime {
+  /* TODO: Use a CSS variable */
+  padding: var(--el-main-padding) var(--el-main-padding) 10px;
+}
+
+.post-tag {
+  /* TODO: Use a CSS variable */
+  margin-right: 4px;
 }
 </style>
