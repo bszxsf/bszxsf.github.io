@@ -92,7 +92,12 @@ export default defineNuxtConfig({
   },
   nitro: {
     prerender: {
-      routes: ['/api/posts/search.json']
+      routes: [
+        '/api/posts/search.json',
+        '/api/posts/navigation/basic.json',
+        '/api/posts/navigation/detailed.json',
+        '/api/posts/tags.json'
+      ]
     }
   },
   hooks: {
