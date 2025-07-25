@@ -13,7 +13,10 @@
         <el-icon><folder /></el-icon>
         {{ cat.title }}
       </template>
-      <navigator-post-category :navInfo="cat.children!" :catTitle="cat.title" />
+      <navigator-post-category
+        :nav-info="cat.children!"
+        :cat-title="cat.title"
+      />
     </el-sub-menu>
     <!-- Posts outside any category -->
     <el-menu-item

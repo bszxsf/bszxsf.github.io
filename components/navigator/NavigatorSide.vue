@@ -11,7 +11,7 @@
           <span>索引</span>
         </template>
       </el-menu-item>
-      <navigator-post-category :navInfo="navInfo!" />
+      <navigator-post-category :nav-info="navInfo!" />
     </el-menu-item-group>
     <el-menu-item-group title="其他">
       <el-menu-item index="/">
